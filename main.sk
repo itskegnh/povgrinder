@@ -45,6 +45,7 @@ function join(p: player):
     # if {_p} is not op:
         # kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing - povgrinder.minehut.gg."
     add 1 to {deaths::%{_p}'s uuid%}
+    send "you now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
 
 on join:
     join(player)
