@@ -4,8 +4,8 @@ header-footer:
   disable-in-worlds:
   header:
     - ""
-    - "         &6&lPOVgrinder         "
-    - "         &7Online players: &f%online%&7/%server_max_players%         "
+    - "              &x&d&d&1&5&4&5&lP&x&e&1&2&2&3&d&lO&x&e&5&2&f&3&6&lV&x&e&8&3&c&2&e&lg&x&e&c&4&9&2&6&lr&x&f&0&5&6&1&f&li&x&f&4&6&3&1&7&ln&x&f&7&7&0&0&f&ld&x&f&b&7&d&0&8&le&x&f&f&8&a&0&0&lr"
+    - "         &7Online players: &e%online%&7/&e%server_max_players%         "
     - ""
   footer:
     - ""
