@@ -27,6 +27,8 @@ function join(p: player):
             spawn mooshroom at {_l}
         if {entity::%{_p}'s uuid%} is "wither_skeleton":
             spawn wither skeleton at {_l}
+        if {entity::%{_p}'s uuid%} is "wither":
+            spawn wither at {_l}
         if {entity::%{_p}'s uuid%} is "ender_dragon":
             spawn ender dragon at {_l}
     set {_z} to last spawned entity
