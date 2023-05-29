@@ -53,10 +53,10 @@ function join(p: player):
     send "you now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
 
 on join:
+    set join message to "&7[&a+&7] %player%"
     wait 5 ticks
     teleport player to {shop}
     send title "&6&lUSE /grind" with subtitle "&7use f5" to player
-    set join message to "&7[&a+&7] %player%"
 
 on quit:
     set quit message to "&7[&c-&7] %player%"
