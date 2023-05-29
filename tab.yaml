@@ -9,9 +9,7 @@ header-footer:
     - ""
   footer:
     - ""
-    - ""
-    - ""
-    - "&7&l Used memory: %memory-used% MB / %memory-max% MB"
+    - "&x&d&d&1&5&4&5P&x&e&1&2&2&3&dO&x&e&5&2&f&3&6V&x&e&8&3&c&2&eg&x&e&c&4&9&2&6r&x&f&0&5&6&1&fi&x&f&4&6&3&1&7n&x&f&7&7&0&0&fd&x&f&b&7&d&0&8e&x&f&f&8&a&0&0r&7.minehut.gg"
     - ""
     - "&7Visit our webpage %animation:web%"
   per-world:
