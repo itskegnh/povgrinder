@@ -11,9 +11,9 @@ function join(p: player):
 
     wait 1 tick
 
-    console command "/spectate %{_z}'s uuid% %{_p}%"
 
     while {_z} is alive:
+        console command "/spectate %{_z}'s uuid% %{_p}%"
         set path target with speed 1 of {_z} to {pos}
         wait 1 tick
 
