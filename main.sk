@@ -45,7 +45,7 @@ function join(p: player):
         if {_} is greater than 200:
             kill {_z}
 
-    send title "&c&lThe end!" with subtitle "&7Thank you for playing. (/shop)" to {_p}
+    send title "&c&lMob died" with subtitle "&7good job!. (/shop)" to {_p}
     wait 1 second
     # if {_p} is not op:
         # kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing - povgrinder.minehut.gg."
