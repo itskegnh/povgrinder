@@ -92,6 +92,9 @@ command /shop:
         open {_gui} to player
 
         teleport player to {shop}
+        set player's gamemode to adventure
+
+        send "use /grind to go back" to player
 
 on inventory click:
     if event-inventory = metadata tag "gui" of player:
