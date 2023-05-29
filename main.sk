@@ -111,10 +111,10 @@ command /shop:
         else:
             set slot 17 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c70 deaths&7 to unlock this." with all flags hidden
         
-        if {deaths::%player's uuid%} >= 100:
+        if {deaths::%player's uuid%} >= 150:
             set slot 21 of {_gui} to enderman spawn egg named "&d&lENDER DRAGON" with lore "&6Click to equip." with all flags hidden
         else:
-            set slot 17 of {_gui} to iron bars named "&cender dragon!." with lore "&7You need &n&c100 deaths&7 to unlock this." with all flags hidden
+            set slot 17 of {_gui} to iron bars named "&cender dragon!." with lore "&7You need &n&c150 deaths&7 to unlock this." with all flags hidden
 
         set metadata tag "gui" of player to {_gui}
 
@@ -190,9 +190,9 @@ on inventory click:
             else:
                 send "&cYou need &n&c80 deaths&c to unlock this."
         if index of event-slot = 21:
-            if {deaths::%player's uuid%} >= 110:
+            if {deaths::%player's uuid%} >= 150:
                 set {entity::%player's uuid%} to "ender_dragon"
                 send "&7You have equipped &d&lEnder Dragon&7."
                 close player's inventory
             else:
-                send "&cYou need &n&c110 deaths&c to unlock this."
+                send "&cYou need &n&c150 deaths&c to unlock this."
