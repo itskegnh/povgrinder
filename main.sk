@@ -59,7 +59,8 @@ on join:
     send title "&6&lUSE /grind" with subtitle "&7use f5" to player
 
 on quit:
-    set quit message to "&7[&c-&7] %player%"
+    set quit message to ""
+    send actionbar "&7[&c-&7] %player%" to all players
 
 on chat:
     set chat format to "&7%player's prefix%%player%&8: &f%message%"
