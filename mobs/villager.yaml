@@ -1,0 +1,9 @@
+index: 10
+
+name: "&6Villager"
+item: villager spawn egg
+
+deaths: 100
+rebirths: 0
+
+mob: villager
