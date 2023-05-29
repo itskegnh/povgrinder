@@ -32,8 +32,8 @@ on load:
 
 function gui_shop(p: player):
     set {_gui} to chest inventory with 3 rows named "Shop"
-    set slots (integers between 0 and 26) to black stained glass pane named "&7"
-    set slots (integers between 10 and 16) to light gray stained glass pane named "&7"
+    set slots (integers between 0 and 26) of {_gui} to black stained glass pane named "&7"
+    set slots (integers between 10 and 16) of {_gui} to light gray stained glass pane named "&7"
 
     # set slot 11 of {_gui} to zombie spawn egg named "&2Zombie" with lore "&6Click to equip."
     set slot 11 of {_gui} to zombie spawn egg named "&6Monsters" with all flags hidden
@@ -54,8 +54,8 @@ on inventory click:
 
 function gui_mob_shop(p: player, i: integer):
     set {_gui} to chest inventory with 3 rows named "Shop - Monsters"
-    set slots (integers between 0 and 26) to black stained glass pane named "&7"
-    set slots (integers between 9 and 17) to light gray stained glass pane named "&7"
+    set slots (integers between 0 and 26) of {_gui} to black stained glass pane named "&7"
+    set slots (integers between 9 and 17) of {_gui} to light gray stained glass pane named "&7"
 
     loop 9 times:
         set {_index} to loop-value + ({_i} * 9)
