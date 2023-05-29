@@ -31,11 +31,14 @@ function join(p: player):
 
     wait 1 tick
 
-
+    set {_} to 0
     while {_z} is alive:
         console command "/spectate %{_z}'s uuid% %{_p}%"
         set path target with speed 1 of {_z} to {pos}
         wait 1 tick
+        add 1 to {_}
+        if {_} is greater than 200:
+            kill {_z}
 
     send title "&c&lThe end!" with subtitle "&7Thank you for playing. (/shop)" to {_p}
     wait 1 second
