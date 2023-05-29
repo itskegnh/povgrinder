@@ -94,6 +94,7 @@ command /shop:
 on inventory click:
     if event-inventory = metadata tag "gui" of player:
         cancel event
+        send index of event-slot
         if index of event-slot = 9:
             set {entity::%player's uuid%} to zombie
             send "&7You have equipped &6&lZombie&7."
