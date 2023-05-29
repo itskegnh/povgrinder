@@ -66,8 +66,7 @@ function gui_mob_shop(p: player, i: integer):
     set slots (integers between 9 and 17) of {_gui} to light gray stained glass pane named "&7"
 
     loop 9 times:
-        set {_index} to loop-value + ({_i} * 9)
-        send "%{_index}%" to {_p}
+        set {_index} to loop-value + ({_i} * 9) - 1
         if {_index} >= {shop::mobs::total}:
             stop loop
         
