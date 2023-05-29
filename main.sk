@@ -89,12 +89,13 @@ command /shop:
             set slot 17 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c70 deaths&7 to unlock this." with all flags hidden
 
         set metadata tag "gui" of player to {_gui}
-        open {_gui} to player
 
         teleport player to {shop}
         set player's gamemode to adventure
 
         send "use /grind to go back" to player
+        
+        open {_gui} to player
 
 on inventory click:
     if event-inventory = metadata tag "gui" of player:
