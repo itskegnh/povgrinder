@@ -55,7 +55,7 @@ function join(p: player):
 on join:
     wait 5 ticks
     teleport player to {shop}
-    send title "&6&lUSE /grind" with subtitle "&7povgrinder.minehut.gg" to player
+    send title "&6&lUSE /grind" with subtitle "&7use f5" to player
     set join message to "&7[&a+&7] %player%"
 
 on quit:
