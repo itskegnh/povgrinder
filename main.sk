@@ -24,3 +24,7 @@ function join(p: player):
 
 on join:
     join(player)
+    set join message to "&7%player% joined the game."
+
+on quit:
+    set quit message to "&7%player% fell down the grinder."
