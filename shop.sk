@@ -147,6 +147,3 @@ on inventory click:
 # now, to unlock aruas we'll use lootboxes.
 # player's right click their lootboxes to open them.
 # leader boards
-
-on swap item:
-    send "you pressed f"
