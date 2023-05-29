@@ -122,7 +122,10 @@ command /shop:
             set slot 21 of {_gui} to iron bars named "&cwither." with lore "&7You need &n&c150 deaths&7 to unlock this." with all flags hidden
 
         if {rebirths::%player's uuid%} >= 1:
-            set slot 22 of {_gui} to enderman spawn egg named "&d&lENDER DRAGON" with lore "&6Click to equip." with all flags hidden
+            if {deaths::%player's uuid%} >= 250:
+                set slot 22 of {_gui} to enderman spawn egg named "&d&lENDER DRAGON" with lore "&6Click to equip." with all flags hidden
+            else:
+                set slot 22 of {_gui} to iron bars named "&cender dragon!." with lore "&7You need &d&n1 rebirth&7 and &c&n250 deaths&7 to unlock this." with all flags hidden
         else:
             set slot 22 of {_gui} to iron bars named "&cender dragon!." with lore "&7You need &d&n1 rebirth&7 and &c&n250 deaths&7 to unlock this." with all flags hidden
 
