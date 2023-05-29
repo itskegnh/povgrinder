@@ -1,7 +1,9 @@
 on join:
-    wait 10 ticks
+    wait 5 ticks
+    teleport player to {pos}
+    wait 1 tick
     set player's gamemode to spectator
-    send title "POV Grinder." to player
+    send title "&6&lPOV GRINDER" with subtitle "&7povgrinder.minehut.gg" to player
 
     set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
     spawn zombie at {_l}
@@ -13,6 +15,8 @@ on join:
 
     while {_z} exists:
         set path target with speed 1 of {_z} to {pos}
-    
         wait 1 tick
-        
+
+    send title "&c&lThe end!" with subtitle "&7Thank you for playing." to player
+    wait 1 second
+    kick player due to "&c&lThe end!&r%nl%&7Thank you for playing."
