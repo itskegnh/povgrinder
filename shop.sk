@@ -98,7 +98,9 @@ on inventory click:
 
     if index of event-slot = 18:
         if {_page} > 0:
+            send "%{_page}%" to player
             set {_page} to ({_page} - 1)
+            send "%{_page}%" to player
             gui_mob_shop(player, {_page})
             stop
 
