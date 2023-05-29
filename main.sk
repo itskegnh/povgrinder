@@ -1,9 +1,9 @@
-on join:
+function join(p: player):
     wait 5 ticks
-    teleport player to {pos}
+    teleport {_p} to {pos}
     wait 1 tick
-    set player's gamemode to spectator
-    send title "&6&lPOV GRINDER" with subtitle "&7povgrinder.minehut.gg" to player
+    set {_p}'s gamemode to spectator
+    send title "&6&lPOV GRINDER" with subtitle "&7povgrinder.minehut.gg" to {_p}
 
     set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
     spawn zombie at {_l}
@@ -11,12 +11,15 @@ on join:
 
     wait 1 tick
 
-    console command "/spectate %{_z}'s uuid% %player%"
+    console command "/spectate %{_z}'s uuid% %{_p}%"
 
     while {_z} exists:
         set path target with speed 1 of {_z} to {pos}
         wait 1 tick
 
-    send title "&c&lThe end!" with subtitle "&7Thank you for playing." to player
+    send title "&c&lThe end!" with subtitle "&7Thank you for playing." to {_p}
     wait 1 second
-    kick player due to "&c&lThe end!&r%nl%&7Thank you for playing."
+    kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing."
+
+on join:
+    join(player)
