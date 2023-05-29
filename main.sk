@@ -90,61 +90,61 @@ on inventory click:
     if event-inventory = metadata tag "gui" of player:
         cancel event
         if event-slot = 9:
-            set {entity::%player's uuid%} to zombie
+            set {entity::%player's uuid%} to "zombie" parsed as entitytype
             send "&7You have equipped &6&lZombie&7."
             close player's inventory
         if event-slot = 10:
             if {deaths::%player's uuid%} > 10:
-                set {entity::%player's uuid%} to skeleton
+                set {entity::%player's uuid%} to "skeleton" parsed as entitytype
                 send "&7You have equipped &6&lSkeleton&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c10 deaths&c to unlock this."
         if event-slot = 11:
             if {deaths::%player's uuid%} > 20:
-                set {entity::%player's uuid%} to creeper
+                set {entity::%player's uuid%} to "creeper" parsed as entitytype
                 send "&7You have equipped &a&lCreeper&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c20 deaths&c to unlock this."
         if event-slot = 12:
             if {deaths::%player's uuid%} > 30:
-                set {entity::%player's uuid%} to husk
+                set {entity::%player's uuid%} to "husk" parsed as entitytype
                 send "&7You have equipped &6&lHusk&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c30 deaths&c to unlock this."
         if event-slot = 13:
             if {deaths::%player's uuid%} > 40:
-                set {entity::%player's uuid%} to villager
+                set {entity::%player's uuid%} to "villager" parsed as entitytype
                 send "&7You have equipped &e&lVillager&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c40 deaths&c to unlock this."
         if event-slot = 14:
             if {deaths::%player's uuid%} > 50:
-                set {entity::%player's uuid%} to snow golem
+                set {entity::%player's uuid%} to "snow golem" parsed as entitytype
                 send "&7You have equipped &f&lSnow Golem&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c50 deaths&c to unlock this."
         if event-slot = 15:
             if {deaths::%player's uuid%} > 60:
-                set {entity::%player's uuid%} to cow
+                set {entity::%player's uuid%} to "cow" parsed as entitytype
                 send "&7You have equipped &6&lCow&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c60 deaths&c to unlock this."
         if event-slot = 16:
             if {deaths::%player's uuid%} > 70:
-                set {entity::%player's uuid%} to mooshroom
+                set {entity::%player's uuid%} to "mooshroom" parsed as entitytype
                 send "&7You have equipped &c&lMooshroom&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c70 deaths&c to unlock this."
         if event-slot = 17:
             if {deaths::%player's uuid%} > 80:
-                set {entity::%player's uuid%} to wither skeleton
+                set {entity::%player's uuid%} to "wither skeleton" parsed as entitytype
                 send "&7You have equipped &8&lWither Skeleton&7."
                 close player's inventory
             else:
