@@ -24,6 +24,7 @@ function join(p: player):
     wait 1 second
     # if {_p} is not op:
         # kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing - povgrinder.minehut.gg."
+    add 1 to {deaths::%{_p}'s uuid%}
 
 on join:
     join(player)
@@ -47,10 +48,15 @@ command /shop:
         set slots (integers between 9 and 17) of {_gui} to air
         set slot 9 of {_gui} to zombie spawn egg named "&6&lZombie" with lore "&6Click to equip." with all flags hidden
         
-        if {deaths::%player's uuid%} > 10:
+        if {deaths::%player's uuid%} > 5:
             set slot 10 of {_gui} to skeleton spawn egg named "&6&lSkeleton" with lore "&6Click to equip." with all flags hidden
         else:
-            set slot 10 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c10 deaths&7 to unlock this." with all flags hidden
+            set slot 10 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c5 deaths&7 to unlock this." with all flags hidden
+        
+        if {deaths::%player's uuid%} > 10:
+            set slot 11 of {_gui} to creeper spawn egg named "&a&lCreeper" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 11 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c10 deaths&7 to unlock this." with all flags hidden
 
         if {deaths::%player's uuid%} > 20:
             set slot 12 of {_gui} to husk spawn egg named "&6&lHusk" with lore "&6Click to equip." with all flags hidden
