@@ -82,7 +82,7 @@ function gui_mob_shop(p: player, i: integer):
         
 on inventory click:
     metadata tag "gui.shop.mobs" of player = event-inventory
-    set {_page} to metadata tag "page.shop.mobs" of player
+    set {_page} to (metadata tag "page.shop.mobs" of player) parsed as integer
 
     if index of event-slot = 18:
         if {_page} > 0:
