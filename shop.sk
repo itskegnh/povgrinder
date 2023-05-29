@@ -103,7 +103,7 @@ on inventory click:
             stop
 
     if index of event-slot = 26:
-        if {_page} < ({shop::mobs::total} / 9):
+        if {_page} < floor(({shop::mobs::total}-1) / 9):
             set {_page} to ({_page} + 1)
             gui_mob_shop(player, {_page})
             stop
