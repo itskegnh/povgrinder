@@ -231,11 +231,11 @@ on inventory click:
 
 command /rebirth:
     trigger:
-        if {deaths::%player's uuid%} >= 300:
+        if {deaths::%player's uuid%} >= 250:
             send "&d%player% &7has &d&lREBIRTHED" to all players
             add 1 to {rebirths::%player's uuid%}
             set {deaths::%player's uuid%} to 0
             set {entity::%player's uuid%} to "zombie"
             send "&7You have &d&lREBIRTHED&7."
         else:
-            send "&cYou need &n&c300 deaths&c to rebirth."
+            send "&cYou need &n&c250 deaths&c to rebirth."
