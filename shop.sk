@@ -84,7 +84,7 @@ function gui_mob_shop(p: player, i: integer):
 on inventory click:
     metadata tag "gui.shop.mobs" of player = event-inventory
     cancel event
-    set {_page} to (metadata tag "page.shop.mobs" of player) parsed as integer
+    set {_page} to ((metadata tag "page.shop.mobs" of player) parsed as integer ? 0)
     send "%{_page}%"
     send "%index of event-slot%"
 
