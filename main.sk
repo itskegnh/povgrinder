@@ -8,8 +8,25 @@ function join(p: player):
     set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
     if {entity::%{_p}'s uuid%} is not set:
         spawn zombie at {_l}
-    else:
-        spawn {entity::%{_p}'s uuid%} at {_l}
+    else if {entity::%{_p}'s uuid%} is set:
+        if {entity::%{_p}'s uuid%} is "zombie":
+            spawn zombie at {_l}
+        if {entity::%{_p}'s uuid%} is "skeleton":
+            spawn skeleton at {_l}
+        if {entity::%{_p}'s uuid%} is "creeper":
+            spawn creeper at {_l}
+        if {entity::%{_p}'s uuid%} is "husk":
+            spawn husk at {_l}
+        if {entity::%{_p}'s uuid%} is "villager":
+            spawn villager at {_l}
+        if {entity::%{_p}'s uuid%} is "snow_golem":
+            spawn snow_golem at {_l}
+        if {entity::%{_p}'s uuid%} is "cow":
+            spawn cow at {_l}
+        if {entity::%{_p}'s uuid%} is "mooshroom":
+            spawn mooshroom at {_l}
+        if {entity::%{_p}'s uuid%} is "wither_skeleton":
+            spawn wither_skeleton at {_l}
     set {_z} to last spawned entity
 
     wait 1 tick
@@ -94,7 +111,7 @@ command /shop:
         set player's gamemode to adventure
 
         send "use /grind to go back" to player
-        
+
         open {_gui} to player
 
 on inventory click:
@@ -102,61 +119,61 @@ on inventory click:
         cancel event
         send "%index of event-slot%" to player
         if index of event-slot = 9:
-            set {entity::%player's uuid%} to zombie
+            set {entity::%player's uuid%} to "zombie"
             send "&7You have equipped &6&lZombie&7."
             close player's inventory
         if index of event-slot = 10:
             if {deaths::%player's uuid%} >= 5:
-                set {entity::%player's uuid%} to skeleton
+                set {entity::%player's uuid%} to "skeleton"
                 send "&7You have equipped &6&lSkeleton&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c5 deaths&c to unlock this."
         if index of event-slot = 11:
             if {deaths::%player's uuid%} >= 10:
-                set {entity::%player's uuid%} to creeper
+                set {entity::%player's uuid%} to "creeper"
                 send "&7You have equipped &a&lCreeper&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c10 deaths&c to unlock this."
         if index of event-slot = 12:
             if {deaths::%player's uuid%} >= 30:
-                set {entity::%player's uuid%} to husk
+                set {entity::%player's uuid%} to "husk"
                 send "&7You have equipped &6&lHusk&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c30 deaths&c to unlock this."
         if index of event-slot = 13:
             if {deaths::%player's uuid%} >= 40:
-                set {entity::%player's uuid%} to villager
+                set {entity::%player's uuid%} to "villager"
                 send "&7You have equipped &e&lVillager&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c40 deaths&c to unlock this."
         if index of event-slot = 14:
             if {deaths::%player's uuid%} >= 50:
-                set {entity::%player's uuid%} to snow golem
+                set {entity::%player's uuid%} to "snow golem"
                 send "&7You have equipped &f&lSnow Golem&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c50 deaths&c to unlock this."
         if index of event-slot = 15:
             if {deaths::%player's uuid%} >= 60:
-                set {entity::%player's uuid%} to cow
+                set {entity::%player's uuid%} to "cow"
                 send "&7You have equipped &6&lCow&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c60 deaths&c to unlock this."
         if index of event-slot = 16:
             if {deaths::%player's uuid%} >= 70:
-                set {entity::%player's uuid%} to mooshroom
+                set {entity::%player's uuid%} to "mooshroom"
                 send "&7You have equipped &c&lMooshroom&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c70 deaths&c to unlock this."
         if index of event-slot = 17:
             if {deaths::%player's uuid%} >= 80:
-                set {entity::%player's uuid%} to wither skeleton
+                set {entity::%player's uuid%} to "wither skeleton"
                 send "&7You have equipped &8&lWither Skeleton&7."
                 close player's inventory
             else:
