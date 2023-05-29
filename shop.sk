@@ -83,7 +83,7 @@ function gui_mob_shop(p: player, i: integer):
     if {_i} > 0:
         set slot 18 of {_gui} to arrow named "&cBack" with all flags hidden
     set slot 22 of {_gui} to barrier named "&cClose" with all flags hidden
-    if {_i} < floor({shop::mobs::total} / 9):
+    if {_i} < floor({shop::mobs::total}-1 / 9):
         set slot 26 of {_gui} to arrow named "&aNext" with all flags hidden
     
     set metadata tag "gui.shop.mobs" of {_p} to {_gui}
