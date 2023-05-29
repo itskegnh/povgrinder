@@ -97,17 +97,17 @@ on inventory click:
     set {_page} to ((metadata tag "page.shop.mobs" of player) parsed as integer ? 0)
 
     if index of event-slot = 18:
-        send "%{_page}%" to player
         if {_page} > 0:
-            send "%{_page}%" to player
             set {_page} to ({_page} - 1)
-            send "%{_page}%" to player
             gui_mob_shop(player, {_page})
             stop
 
     if index of event-slot = 26:
+        send "%{_page}%" to player
         if {_page} < floor(({shop::mobs::total}-1) / 9):
+            send "%{_page}%" to player
             set {_page} to ({_page} + 1)
+            send "%{_page}%" to player
             gui_mob_shop(player, {_page})
             stop
     
