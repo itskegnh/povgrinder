@@ -1,0 +1,18 @@
+on join:
+    wait 10 ticks
+    set player's gamemode to spectator
+    send title "POV Grinder." to player
+
+    set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
+    spawn zombie at {_l}
+    set {_z} to last spawned entity
+
+    wait 1 tick
+
+    console command "/spectate %{_z}'s uuid% %player%"
+
+    while {_z} exists:
+        set path target with speed 1 of {_z} to {pos}
+    
+        wait 1 tick
+        
