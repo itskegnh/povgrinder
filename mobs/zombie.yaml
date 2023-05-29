@@ -3,7 +3,7 @@ index: 0
 name: "&2Zombie"
 item: zombie spawn egg
 
-deaths: 0
+deaths: 1
 rebirths: 0
 
 mob: zombie
