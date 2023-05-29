@@ -1,5 +1,4 @@
 function join(p: player):
-    wait 5 ticks
     teleport {_p} to {pos}
     wait 1 tick
     set {_p}'s gamemode to spectator
@@ -54,7 +53,9 @@ function join(p: player):
     send "you now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
 
 on join:
-    join(player)
+    wait 5 ticks
+    teleport player to {shop}
+    send title "&6&lUSE /grind" with subtitle "&7povgrinder.minehut.gg" to player
     set join message to "&7[&a+&7] %player%"
 
 on quit:
