@@ -1,3 +1,8 @@
+on join:
+    set {player::%player's uuid%::deaths} to 0 if {player::%player's uuid%::deaths} is not set
+    set {player::%player's uuid%::rebirths} to 0 if {player::%player's uuid%::rebirths} is not set
+    
+
 on load:
     delete {shop::mobs::*}
     wait 1 tick
