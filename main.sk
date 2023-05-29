@@ -63,7 +63,7 @@ command /shop:
             set slot 13 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c30 deaths&7 to unlock this." with all flags hidden
 
         if {deaths::%player's uuid%} > 40:
-            set slot 14 of {_gui} to snow golem spawn egg named "&f&lSnow Golem" with lore "&6Click to equip." with all flags hidden
+            set slot 14 of {_gui} to carved pumpkin named "&f&lSnow Golem" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 14 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c40 deaths&7 to unlock this." with all flags hidden
 
