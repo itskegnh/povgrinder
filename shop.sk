@@ -107,7 +107,7 @@ on inventory click:
         send "%{_page}%" to player
         if {_page} < floor(({shop::mobs::total}-1) / 9):
             send "%{_page}%" to player
-            set {_page} to ({_page} + 1)
+            add 1 to {_page}
             send "%{_page}%" to player
             close player's inventory
             gui_mob_shop(player, {_page})
