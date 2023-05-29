@@ -19,7 +19,7 @@ function join(p: player):
 
     send title "&c&lThe end!" with subtitle "&7Thank you for playing." to {_p}
     wait 1 second
-    if player is not op:
+    if {_p} is not op:
         kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing - povgrinder.minehut.gg."
 
 on join:
