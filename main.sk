@@ -48,42 +48,42 @@ command /shop:
         set slots (integers between 9 and 17) of {_gui} to air
         set slot 9 of {_gui} to zombie spawn egg named "&6&lZombie" with lore "&6Click to equip." with all flags hidden
         
-        if {deaths::%player's uuid%} > 5:
+        if {deaths::%player's uuid%} >= 5:
             set slot 10 of {_gui} to skeleton spawn egg named "&6&lSkeleton" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 10 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c5 deaths&7 to unlock this." with all flags hidden
         
-        if {deaths::%player's uuid%} > 10:
+        if {deaths::%player's uuid%} >= 10:
             set slot 11 of {_gui} to creeper spawn egg named "&a&lCreeper" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 11 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c10 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 20:
+        if {deaths::%player's uuid%} >= 20:
             set slot 12 of {_gui} to husk spawn egg named "&6&lHusk" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 12 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c20 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 30:
+        if {deaths::%player's uuid%} >= 30:
             set slot 13 of {_gui} to villager spawn egg named "&e&lVillager" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 13 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c30 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 40:
+        if {deaths::%player's uuid%} >= 40:
             set slot 14 of {_gui} to carved pumpkin named "&f&lSnow Golem" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 14 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c40 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 50:
+        if {deaths::%player's uuid%} >= 50:
             set slot 15 of {_gui} to cow spawn egg named "&6&lCow" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 15 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c50 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 60:
+        if {deaths::%player's uuid%} >= 60:
             set slot 16 of {_gui} to mooshroom spawn egg named "&c&lMooshroom" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 16 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c60 deaths&7 to unlock this." with all flags hidden
 
-        if {deaths::%player's uuid%} > 70:
+        if {deaths::%player's uuid%} >= 70:
             set slot 17 of {_gui} to wither skeleton spawn egg named "&8&lWither Skeleton" with lore "&6Click to equip." with all flags hidden
         else:
             set slot 17 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c70 deaths&7 to unlock this." with all flags hidden
@@ -99,56 +99,56 @@ on inventory click:
             send "&7You have equipped &6&lZombie&7."
             close player's inventory
         if event-slot = 10:
-            if {deaths::%player's uuid%} > 10:
+            if {deaths::%player's uuid%} >= 10:
                 set {entity::%player's uuid%} to "skeleton" parsed as entitytype
                 send "&7You have equipped &6&lSkeleton&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c10 deaths&c to unlock this."
         if event-slot = 11:
-            if {deaths::%player's uuid%} > 20:
+            if {deaths::%player's uuid%} >= 20:
                 set {entity::%player's uuid%} to "creeper" parsed as entitytype
                 send "&7You have equipped &a&lCreeper&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c20 deaths&c to unlock this."
         if event-slot = 12:
-            if {deaths::%player's uuid%} > 30:
+            if {deaths::%player's uuid%} >= 30:
                 set {entity::%player's uuid%} to "husk" parsed as entitytype
                 send "&7You have equipped &6&lHusk&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c30 deaths&c to unlock this."
         if event-slot = 13:
-            if {deaths::%player's uuid%} > 40:
+            if {deaths::%player's uuid%} >= 40:
                 set {entity::%player's uuid%} to "villager" parsed as entitytype
                 send "&7You have equipped &e&lVillager&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c40 deaths&c to unlock this."
         if event-slot = 14:
-            if {deaths::%player's uuid%} > 50:
+            if {deaths::%player's uuid%} >= 50:
                 set {entity::%player's uuid%} to "snow golem" parsed as entitytype
                 send "&7You have equipped &f&lSnow Golem&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c50 deaths&c to unlock this."
         if event-slot = 15:
-            if {deaths::%player's uuid%} > 60:
+            if {deaths::%player's uuid%} >= 60:
                 set {entity::%player's uuid%} to "cow" parsed as entitytype
                 send "&7You have equipped &6&lCow&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c60 deaths&c to unlock this."
         if event-slot = 16:
-            if {deaths::%player's uuid%} > 70:
+            if {deaths::%player's uuid%} >= 70:
                 set {entity::%player's uuid%} to "mooshroom" parsed as entitytype
                 send "&7You have equipped &c&lMooshroom&7."
                 close player's inventory
             else:
                 send "&cYou need &n&c70 deaths&c to unlock this."
         if event-slot = 17:
-            if {deaths::%player's uuid%} > 80:
+            if {deaths::%player's uuid%} >= 80:
                 set {entity::%player's uuid%} to "wither skeleton" parsed as entitytype
                 send "&7You have equipped &8&lWither Skeleton&7."
                 close player's inventory
