@@ -1,7 +1,7 @@
 on join:
     set {player::%player's uuid%::deaths} to 0 if {player::%player's uuid%::deaths} is not set
     set {player::%player's uuid%::rebirths} to 0 if {player::%player's uuid%::rebirths} is not set
-    
+
 
 on load:
     delete {shop::mobs::*}
@@ -34,6 +34,7 @@ on load:
         set {shop::mobs::%{_index}%::mob} to {_mob}
         set {shop::mobs::%{_index}%::deaths} to {_deaths}
         set {shop::mobs::%{_index}%::rebirths} to {_rebirths}
+        set {shop::mobs::%{_index}%::name} to {_name}
         add 1 to {shop::mobs::total}
 
 function gui_shop(p: player):
@@ -124,6 +125,7 @@ on inventory click:
             if {player::%player's uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
                 if {player::%player's uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
                     set {player::%player's uuid%::entity} to {shop::mobs::%{_index}%::mob} parsed as entitytype
+                    send "&aYou have equipped the &6%{shop::mobs::%{_index}%::name}% &amob." to player
             
             close player's inventory
     
