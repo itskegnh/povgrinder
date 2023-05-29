@@ -99,6 +99,7 @@ on inventory click:
     if index of event-slot = 18:
         if {_page} > 0:
             set {_page} to ({_page} - 1)
+            close player's inventory
             gui_mob_shop(player, {_page})
             stop
 
@@ -108,6 +109,7 @@ on inventory click:
             send "%{_page}%" to player
             set {_page} to ({_page} + 1)
             send "%{_page}%" to player
+            close player's inventory
             gui_mob_shop(player, {_page})
             stop
     
