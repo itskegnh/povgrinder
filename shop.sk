@@ -135,5 +135,5 @@ on inventory click:
             close player's inventory
             stop
         
-function 
+# function gui_aura_shop
     
