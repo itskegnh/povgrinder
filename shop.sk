@@ -1,0 +1,114 @@
+on load:
+    delete {shop::mobs::*}
+    wait 1 tick
+
+    load all yaml from directory "plugins/Skript/scripts/povgrinder-git/mobs/"
+
+    loop all the currently loaded yaml files:   
+        set {_index} to yaml value "index" from loop-value
+
+        set {_name} to yaml value "name" from loop-value
+        set {_display} to yaml value "item" from loop-value
+
+        set {_deaths} to yaml value "deaths" from loop-value
+        set {_rebirths} to yaml value "rebirths" from loop-value
+
+        set {_mob} to yaml value "mob" from loop-value
+
+        set {_unlocked} to ({_display} parsed as itemtype) named {_name} with lore "&6Click to equip." with all flags hidden
+        set {_locked} to iron bars named "&cLocked" with all flags hidden
+        
+        if {_deaths} != 0:
+            add "&7You need &c&n%{_deaths}% deaths&7 to unlock this." to lore of {_locked}
+        
+        if {_rebirths} != 0:
+            add "&7You need &d&n%{_rebirths}% rebirths&7 to unlock this." to lore of {_locked}
+        
+        set {shop::mobs::%{_index}%::unlocked} to {_unlocked}
+        set {shop::mobs::%{_index}%::locked} to {_locked}
+        set {shop::mobs::%{_index}%::mob} to {_mob}
+        set {shop::mobs::%{_index}%::deaths} to {_deaths}
+        set {shop::mobs::%{_index}%::rebirths} to {_rebirths}
+
+function gui_shop(p: player):
+    set {_gui} to chest inventory with 3 rows named "Shop"
+    set slots (integers between 0 and 26) to black stained glass pane named "&7"
+    set slots (integers between 10 and 16) to light gray stained glass pane named "&7"
+
+    # set slot 11 of {_gui} to zombie spawn egg named "&2Zombie" with lore "&6Click to equip."
+    set slot 11 of {_gui} to zombie spawn egg named "&6Monsters" with all flags hidden
+    set slot 13 of {_gui} to lime stained glass named "&6Auras" with all flags hidden
+    set slot 15 of {_gui} to name tag named "&6Ranks" with all flags hidden
+
+    set slot 22 of {_gui} to barrier named "&cClose" with all flags hidden
+
+    set metadata tag "gui.shop" of {_p} to {_gui}
+    open {_gui} to {_p}
+
+on inventory click:
+    if metadata tag "gui.shop" of player = event-inventory:
+        if index of event-slot = 11:
+            gui_mob_shop(player, 0)
+        if index of event-slot = 22:
+            close player's inventory
+
+function gui_mob_shop(p: player, i: integer):
+    set {_gui} to chest inventory with 3 rows named "Shop - Monsters"
+    set slots (integers between 0 and 26) to black stained glass pane named "&7"
+    set slots (integers between 9 and 17) to light gray stained glass pane named "&7"
+
+    loop 9 times:
+        set {_index} to loop-value + ({_i} * 9)
+        if {_index} >= size of {shop::mobs::*}:
+            stop
+        
+        if {player::%player's uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
+            if {player::%player's uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
+                set {_item} to {shop::mobs::%{_index}%::unlocked}
+        if {_item} is not set:
+            set {_item} to {shop::mobs::%{_index}%::locked}
+        
+        set slot (loop-value + 9) of {_gui} to {_item}
+    
+    if {_i} > 0:
+        set slot 18 of {_gui} to arrow named "&cBack" with all flags hidden
+    set slot 22 of {_gui} to barrier named "&cClose" with all flags hidden
+    if {_i} < (size of {shop::mobs::*} / 9):
+        set slot 26 of {_gui} to arrow named "&aNext" with all flags hidden
+    
+    set metadata tag "gui.shop.mobs" of {_p} to {_gui}
+    set metadata tag "page.shop.mobs" of {_p} to {_i}
+    open {_gui} to {_p}
+        
+on inventory click:
+    metadata tag "gui.shop.mobs" of player = event-inventory
+    set {_page} to metadata tag "page.shop.mobs" of player
+
+    if index of event-slot = 18:
+        if {_page} > 0:
+            gui_mob_shop(player, {_page} - 1)
+
+    if index of event-slot = 26:
+        if {_page} < (size of {shop::mobs::*} / 9):
+            gui_mob_shop(player, {_page} + 1)
+    
+    if index of event-slot = 22:
+        close player's inventory
+    
+    if index of event-slot < 9:
+        stop
+    if index of event-slot > 17:
+        stop
+    
+    loop integers between 9 and 17:
+        if index of event-slot = loop-value:
+            set {_index} to (loop-value - 9) + ({_page} * 9)
+            if {_index} >= size of {shop::mobs::*}:
+                stop
+            
+            if {player::%player's uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
+                if {player::%player's uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
+                    set {player::%player's uuid%::entity} to {shop::mobs::%{_index}%::mob} parsed as entitytype
+            
+            close player's inventory
+    
