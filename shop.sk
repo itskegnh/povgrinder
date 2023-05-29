@@ -87,11 +87,11 @@ on inventory click:
 
     if index of event-slot = 18:
         if {_page} > 0:
-            gui_mob_shop(player, {_page} - 1)
+            gui_mob_shop(player, ({_page} - 1))
 
     if index of event-slot = 26:
         if {_page} < (size of {shop::mobs::*} / 9):
-            gui_mob_shop(player, {_page} + 1)
+            gui_mob_shop(player, ({_page} + 1))
     
     if index of event-slot = 22:
         close player's inventory
