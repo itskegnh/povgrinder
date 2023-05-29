@@ -78,7 +78,7 @@ function gui_mob_shop(p: player, i: integer):
         else:
             set {_item} to {shop::mobs::%{_index}%::locked}
         
-        set slot (loop-value + 9) of {_gui} to {_item}
+        set slot (loop-value + 9 - 1) of {_gui} to {_item}
     
     if {_i} > 0:
         set slot 18 of {_gui} to arrow named "&cBack" with all flags hidden
