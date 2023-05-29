@@ -1,0 +1,9 @@
+index: 8
+
+name: "&fChicken"
+item: chicken spawn egg
+
+deaths: 80
+rebirths: 1
+
+mob: chicken
