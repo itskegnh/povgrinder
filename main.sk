@@ -6,7 +6,10 @@ function join(p: player):
     send title "&6&lPOV GRINDER" with subtitle "&7povgrinder.minehut.gg" to {_p}
 
     set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
-    spawn zombie at {_l}
+    if {entity::%player's uuid%} is not set:
+        spawn zombie at {_l}
+    else:
+        spawn {entity::%player's uuid%} at {_l}
     set {_z} to last spawned entity
 
     wait 1 tick
@@ -17,14 +20,132 @@ function join(p: player):
         set path target with speed 1 of {_z} to {pos}
         wait 1 tick
 
-    send title "&c&lThe end!" with subtitle "&7Thank you for playing." to {_p}
+    send title "&c&lThe end!" with subtitle "&7Thank you for playing. (/shop)" to {_p}
     wait 1 second
     # if {_p} is not op:
         # kick {_p} due to "&c&lThe end!&r%nl%&7Thank you for playing - povgrinder.minehut.gg."
 
 on join:
     join(player)
-    set join message to "&7%player% joined the game."
+    set join message to "&7[&a+&7] %player%"
 
 on quit:
-    set quit message to "&7%player% fell down the grinder."
+    set quit message to "&7[&c-&7] %player%"
+
+on chat:
+    set chat format to "&7%player's prefix%%player%&8: &f%message%"
+
+command /grind:
+    trigger:
+        join(player)
+
+command /shop:
+    trigger:
+        set {_gui} to chest inventory with 3 rows named "&6&lPOV GRINDER SHOP"
+        set slots (integers between 0 and 26) of {_gui} to black stained glass pane named "&7"
+        set slots (integers between 9 and 17) of {_gui} to air
+        set slot 9 of {_gui} to zombie spawn egg named "&6&lZombie" with lore "&6Click to equip." with all flags hidden
+        
+        if {deaths::%player's uuid%} > 10:
+            set slot 10 of {_gui} to skeleton spawn egg named "&6&lSkeleton" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 10 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c10 deaths&7 to unlock this." with all flags hidden
+
+        set slot 11 of {_gui} to creeper spawn egg named "&a&lCreeper" with lore "&6Click to equip." with all flags hidden
+
+        if {deaths::%player's uuid%} > 20:
+            set slot 12 of {_gui} to husk spawn egg named "&6&lHusk" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 12 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c20 deaths&7 to unlock this." with all flags hidden
+
+        if {deaths::%player's uuid%} > 30:
+            set slot 13 of {_gui} to villager spawn egg named "&e&lVillager" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 13 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c30 deaths&7 to unlock this." with all flags hidden
+
+        if {deaths::%player's uuid%} > 40:
+            set slot 14 of {_gui} to snow golem spawn egg named "&f&lSnow Golem" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 14 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c40 deaths&7 to unlock this." with all flags hidden
+
+        if {deaths::%player's uuid%} > 50:
+            set slot 15 of {_gui} to cow spawn egg named "&6&lCow" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 15 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c50 deaths&7 to unlock this." with all flags hidden
+
+        if {deaths::%player's uuid%} > 60:
+            set slot 16 of {_gui} to mooshroom spawn egg named "&c&lMooshroom" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 16 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c60 deaths&7 to unlock this." with all flags hidden
+
+        if {deaths::%player's uuid%} > 70:
+            set slot 17 of {_gui} to wither skeleton spawn egg named "&8&lWither Skeleton" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 17 of {_gui} to iron bars named "&cLocked." with lore "&7You need &n&c70 deaths&7 to unlock this." with all flags hidden
+
+        set metadata tag "gui" of player to {_gui}
+        open {_gui} to player
+
+on inventory click:
+    if event-inventory = metadata tag "gui" of player:
+        cancel event
+        if event-slot = 9:
+            set {entity::%player's uuid%} to zombie
+            send "&7You have equipped &6&lZombie&7."
+            close inventory with player
+        if event-slot = 10:
+            if {deaths::%player's uuid%} > 10:
+                set {entity::%player's uuid%} to skeleton
+                send "&7You have equipped &6&lSkeleton&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c10 deaths&c to unlock this."
+        if event-slot = 11:
+            if {deaths::%player's uuid%} > 20:
+                set {entity::%player's uuid%} to creeper
+                send "&7You have equipped &a&lCreeper&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c20 deaths&c to unlock this."
+        if event-slot = 12:
+            if {deaths::%player's uuid%} > 30:
+                set {entity::%player's uuid%} to husk
+                send "&7You have equipped &6&lHusk&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c30 deaths&c to unlock this."
+        if event-slot = 13:
+            if {deaths::%player's uuid%} > 40:
+                set {entity::%player's uuid%} to villager
+                send "&7You have equipped &e&lVillager&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c40 deaths&c to unlock this."
+        if event-slot = 14:
+            if {deaths::%player's uuid%} > 50:
+                set {entity::%player's uuid%} to snow_golem
+                send "&7You have equipped &f&lSnow Golem&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c50 deaths&c to unlock this."
+        if event-slot = 15:
+            if {deaths::%player's uuid%} > 60:
+                set {entity::%player's uuid%} to cow
+                send "&7You have equipped &6&lCow&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c60 deaths&c to unlock this."
+        if event-slot = 16:
+            if {deaths::%player's uuid%} > 70:
+                set {entity::%player's uuid%} to mooshroom
+                send "&7You have equipped &c&lMooshroom&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c70 deaths&c to unlock this."
+        if event-slot = 17:
+            if {deaths::%player's uuid%} > 80:
+                set {entity::%player's uuid%} to wither_skeleton
+                send "&7You have equipped &8&lWither Skeleton&7."
+                close inventory with player
+            else:
+                send "&cYou need &n&c80 deaths&c to unlock this."
