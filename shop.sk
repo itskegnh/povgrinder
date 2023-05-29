@@ -61,7 +61,7 @@ function gui_mob_shop(p: player, i: integer):
     loop 9 times:
         set {_index} to loop-value + ({_i} * 9)
         if {_index} >= size of {shop::mobs::*}:
-            stop
+            stop loop
         
         if {player::%{_p}'s uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
             if {player::%{_p}'s uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
