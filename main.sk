@@ -20,13 +20,13 @@ function join(p: player):
         if {entity::%{_p}'s uuid%} is "villager":
             spawn villager at {_l}
         if {entity::%{_p}'s uuid%} is "snow_golem":
-            spawn snow_golem at {_l}
+            spawn snow golem at {_l}
         if {entity::%{_p}'s uuid%} is "cow":
             spawn cow at {_l}
         if {entity::%{_p}'s uuid%} is "mooshroom":
             spawn mooshroom at {_l}
         if {entity::%{_p}'s uuid%} is "wither_skeleton":
-            spawn wither_skeleton at {_l}
+            spawn wither skeleton at {_l}
     set {_z} to last spawned entity
 
     wait 1 tick
@@ -152,7 +152,7 @@ on inventory click:
                 send "&cYou need &n&c40 deaths&c to unlock this."
         if index of event-slot = 14:
             if {deaths::%player's uuid%} >= 50:
-                set {entity::%player's uuid%} to "snow golem"
+                set {entity::%player's uuid%} to "snow_golem"
                 send "&7You have equipped &f&lSnow Golem&7."
                 close player's inventory
             else:
@@ -173,7 +173,7 @@ on inventory click:
                 send "&cYou need &n&c70 deaths&c to unlock this."
         if index of event-slot = 17:
             if {deaths::%player's uuid%} >= 80:
-                set {entity::%player's uuid%} to "wither skeleton"
+                set {entity::%player's uuid%} to "wither_skeleton"
                 send "&7You have equipped &8&lWither Skeleton&7."
                 close player's inventory
             else:
