@@ -1,15 +1,21 @@
 on join:
-    set {player::%player's uuid%::deaths} to 0 if {player::%player's uuid%::deaths} is not set
-    set {player::%player's uuid%::rebirths} to 0 if {player::%player's uuid%::rebirths} is not set
+    set {deaths::%player's uuid%} to 0 if {deaths::%player's uuid%} is not set
+    set {rebirths::%player's uuid%} to 0 if {rebirths::%player's uuid%} is not set
 
 
 on load:
+    delete {yaml::*}
     delete {shop::mobs::*}
     wait 1 tick
 
     load all yaml from directory "plugins/Skript/scripts/povgrinder-git/mobs/"
+    load all yaml from directory "plugins/Skript/scripts/povgrinder-git/mobs/"
 
     loop all the currently loaded yaml files:   
+        set {_type} to yaml value "type" from loop-value
+        add loop-value to {yaml::%{_type}%::*}
+    
+    loop {yaml::mob::*}:
         set {_index} to yaml value "index" from loop-value
 
         set {_name} to yaml value "name" from loop-value
@@ -70,8 +76,8 @@ function gui_mob_shop(p: player, i: integer):
         if {_index} >= {shop::mobs::total}:
             stop loop
         
-        if {player::%{_p}'s uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
-            if {player::%{_p}'s uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
+        if {deaths::%player's uuid%} >= {shop::mobs::%{_index}%::deaths}:
+            if {rebirths::%player's uuid%} >= {shop::mobs::%{_index}%::rebirths}:
                 set {_item} to {shop::mobs::%{_index}%::unlocked}
             else:
                 set {_item} to {shop::mobs::%{_index}%::locked}
@@ -122,9 +128,9 @@ on inventory click:
             if {_index} >= {shop::mobs::total}:
                 stop
             
-            if {player::%player's uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
-                if {player::%player's uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
-                    set {player::%player's uuid%::entity} to {shop::mobs::%{_index}%::mob} parsed as entitytype
+            if {deaths::%player's uuid%} >= {shop::mobs::%{_index}%::deaths}:
+                if {rebirths::%player's uuid%} >= {shop::mobs::%{_index}%::rebirths}:
+                    set {entity::%player's uuid%} to {shop::mobs::%{_index}%::mob} parsed as entitytype
                     send "&fYou have equipped the %{shop::mobs::%{_index}%::name}% &fmob." to player
                 else:
                     send "&cYou have not unlocked this yet." to player
@@ -134,6 +140,13 @@ on inventory click:
             
             close player's inventory
             stop
-        
+
 # function gui_aura_shop
-    
+
+# we have a working paginated mob shop.
+# now, to unlock aruas we'll use lootboxes.
+# player's right click their lootboxes to open them.
+# leader boards
+
+on swap item:
+    send "you pressed f"
