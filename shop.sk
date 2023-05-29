@@ -99,17 +99,12 @@ on inventory click:
     if index of event-slot = 18:
         if {_page} > 0:
             set {_page} to ({_page} - 1)
-            close player's inventory
             gui_mob_shop(player, {_page})
             stop
 
     if index of event-slot = 26:
-        send "%{_page}%" to player
         if {_page} < floor(({shop::mobs::total}-1) / 9):
-            send "%{_page}%" to player
             add 1 to {_page}
-            send "%{_page}%" to player
-            close player's inventory
             gui_mob_shop(player, {_page})
             stop
     
