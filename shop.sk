@@ -68,7 +68,9 @@ function gui_mob_shop(p: player, i: integer):
         if {player::%{_p}'s uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
             if {player::%{_p}'s uuid%::rebirths} >= {shop::mobs::%{_index}%::rebirths}:
                 set {_item} to {shop::mobs::%{_index}%::unlocked}
-        if {_item} is not set:
+            else:
+                set {_item} to {shop::mobs::%{_index}%::locked}
+        else:
             set {_item} to {shop::mobs::%{_index}%::locked}
         
         set slot (loop-value + 9) of {_gui} to {_item}
