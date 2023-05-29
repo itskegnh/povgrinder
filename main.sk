@@ -31,6 +31,8 @@ function join(p: player):
             spawn wither at {_l}
         if {entity::%{_p}'s uuid%} is "ender_dragon":
             spawn ender dragon at {_l}
+        if {entity::%{_p}'s uuid%} is "golem":
+            spawn iron golem at {_l}
     set {_z} to last spawned entity
 
     wait 1 tick
@@ -123,6 +125,11 @@ command /shop:
         else:
             set slot 22 of {_gui} to iron bars named "&cender dragon!." with lore "&7You need &n&c200 deaths&7 to unlock this." with all flags hidden
 
+        if {deaths::%player's uuid%} >= 250:
+            set slot 23 of {_gui} to enderman spawn egg named "&f&lGOLEM" with lore "&6Click to equip." with all flags hidden
+        else:
+            set slot 23 of {_gui} to iron bars named "&ciron golem!." with lore "&7You need &n&c250 deaths&7 to unlock this." with all flags hidden
+
         set metadata tag "gui" of player to {_gui}
 
         teleport player to {shop}
@@ -210,3 +217,10 @@ on inventory click:
                 close player's inventory
             else:
                 send "&cYou need &n&c200 deaths&c to unlock this."
+        if index of event-slot = 23:
+            if {deaths::%player's uuid%} >= 250:
+                set {entity::%player's uuid%} to "golem"
+                send "&7You have equipped &f&lGOLEM&7."
+                close player's inventory
+            else:
+                send "&cYou need &n&c250 deaths&c to unlock this."
