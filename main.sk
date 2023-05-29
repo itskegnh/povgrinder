@@ -6,10 +6,10 @@ function join(p: player):
     send title "&6&lPOV GRINDER" with subtitle "&7povgrinder.minehut.gg" to {_p}
 
     set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
-    if {entity::%player's uuid%} is not set:
+    if {entity::%{_p}'s uuid%} is not set:
         spawn zombie at {_l}
     else:
-        spawn {entity::%player's uuid%} at {_l}
+        spawn {entity::%{_p}'s uuid%} at {_l}
     set {_z} to last spawned entity
 
     wait 1 tick
