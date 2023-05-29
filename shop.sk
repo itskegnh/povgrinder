@@ -47,6 +47,7 @@ function gui_shop(p: player):
 
 on inventory click:
     if metadata tag "gui.shop" of player = event-inventory:
+        cancel event
         if index of event-slot = 11:
             gui_mob_shop(player, 0)
         if index of event-slot = 22:
