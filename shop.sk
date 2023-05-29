@@ -29,6 +29,7 @@ on load:
         set {shop::mobs::%{_index}%::mob} to {_mob}
         set {shop::mobs::%{_index}%::deaths} to {_deaths}
         set {shop::mobs::%{_index}%::rebirths} to {_rebirths}
+        add 1 to {shop::mobs::total}
 
 function gui_shop(p: player):
     set {_gui} to chest inventory with 3 rows named "Shop"
@@ -61,7 +62,7 @@ function gui_mob_shop(p: player, i: integer):
     loop 9 times:
         set {_index} to loop-value + ({_i} * 9)
         send "%{_index}%" to {_p}
-        if {_index} >= size of {shop::mobs::*}:
+        if {_index} >= {shop::mobs::total}:
             stop loop
         
         if {player::%{_p}'s uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
@@ -75,7 +76,7 @@ function gui_mob_shop(p: player, i: integer):
     if {_i} > 0:
         set slot 18 of {_gui} to arrow named "&cBack" with all flags hidden
     set slot 22 of {_gui} to barrier named "&cClose" with all flags hidden
-    if {_i} < (size of {shop::mobs::*} / 9):
+    if {_i} < ({shop::mobs::total} / 9):
         set slot 26 of {_gui} to arrow named "&aNext" with all flags hidden
     
     set metadata tag "gui.shop.mobs" of {_p} to {_gui}
@@ -86,8 +87,6 @@ on inventory click:
     metadata tag "gui.shop.mobs" of player = event-inventory
     cancel event
     set {_page} to ((metadata tag "page.shop.mobs" of player) parsed as integer ? 0)
-    send "%{_page}%"
-    send "%index of event-slot%"
 
     if index of event-slot = 18:
         if {_page} > 0:
@@ -96,7 +95,7 @@ on inventory click:
             stop
 
     if index of event-slot = 26:
-        if {_page} < (size of {shop::mobs::*} / 9):
+        if {_page} < ({shop::mobs::total} / 9):
             set {_page} to ({_page} + 1)
             gui_mob_shop(player, {_page})
             stop
@@ -112,7 +111,7 @@ on inventory click:
     loop integers between 9 and 17:
         if index of event-slot = loop-value:
             set {_index} to (loop-value - 9) + ({_page} * 9)
-            if {_index} >= size of {shop::mobs::*}:
+            if {_index} >= {shop::mobs::total}:
                 stop
             
             if {player::%player's uuid%::deaths} >= {shop::mobs::%{_index}%::deaths}:
