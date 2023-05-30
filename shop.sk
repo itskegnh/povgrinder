@@ -174,7 +174,11 @@ command /rebirth:
             send "&cYou need at least %format(10000)% blood to rebirth." to player
             stop
         
-        remove 10000 from {deaths::%player's uuid%}
+        
+        set {deaths::%player's uuid%} to 10
+        delete {entity::%player's uuid%}
+        delete {boost::%player's uuid%}
+
         add 1 to {rebirths::%player's uuid%}
         send "&dYou have rebirthed! You now have %format({rebirths::%player's uuid%})% rebirths." to player
         send "&d%player% has just rebirthed!" to all players
