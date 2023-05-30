@@ -63,5 +63,5 @@ on join:
             add loop-value to {_p::*}
 
     loop {_p::*}:
-        send fake player named loop-value to player
+        send fake player named "%loop-value%" to player
 
