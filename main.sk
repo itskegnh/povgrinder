@@ -101,3 +101,7 @@ on join:
 on quit:
     set quit message to ""
     send action bar "&e%player% &eleft the game." to all players
+
+on chat:
+    set chat format to "&f%player's prefix%%player%&8 » &f%message%"
+
