@@ -142,10 +142,12 @@ on inventory click:
             stop
 
 function add_player(p: player, n: text):
-    set {_profile} to new GameProfile(UUID.randomUUID(), "fakePlayerName")
-    set {_fake_player} to getPlayerConstructor(p, {_profile})
-    set {_fake_player} to {_fake_player} invoked with "getHandle"
-    Field.setField({_fake_player}, "listName", getAsIChatBaseComponent({_profile}.getName()))
+    set {_packet} to new play_server_player_info packet
+    set {_profile} to new game_profile with id "00000000-0000-0000-0000-000000000000" and name n
+    set {_info} to new player_info with {_profile} and ping 0 and gamemode 3 and display_name n
+    add {_info} to {_packet}'s player_infos
+    send {_packet} to p
+
 
 
 
