@@ -190,8 +190,8 @@ command /rebirth:
         set slots (4 and 22) of {_gui} to purple stained glass pane named "&7"
         set slot 13 of {_gui} to nether star named "&dRebirth" with lore "&7Cost: &c&n%format({_cost})%", "&7", "&7You will lose all your &cblood&7 by rebirthing."
 
-        set metadata tag "gui.rebirth" of {_p} to {_gui}
-        open {_gui} to {_p}
+        set metadata tag "gui.rebirth" of player to {_gui}
+        open {_gui} to player
 
         
         
