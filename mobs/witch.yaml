@@ -1,0 +1,10 @@
+index: 3
+type: mob
+
+name: "&4Witch"
+item: witch spawn egg
+
+deaths: 30
+rebirths: 0
+
+mob: witch
