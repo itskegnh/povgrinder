@@ -87,8 +87,8 @@ function gui_mob_shop(p: player, i: integer):
         set slot (loop-value + 9 - 1) of {_gui} to {_item}
     
     if {_i} > 0:
-        set slot 18 of {_gui} to arrow named "&cBack" with all flags hidden
-    set slot 22 of {_gui} to barrier named "&cClose" with all flags hidden
+        set slot 18 of {_gui} to arrow named "&cPrevious" with all flags hidden
+    set slot 22 of {_gui} to door named "&6Back" with all flags hidden
 
     if {_i} < floor(({shop::mobs::total}-1) / 9):
         set slot 26 of {_gui} to arrow named "&aNext" with all flags hidden
@@ -115,7 +115,8 @@ on inventory click:
             stop
     
     if index of event-slot = 22:
-        close player's inventory
+        gui_shop(player)
+        stop
     
     if index of event-slot < 9:
         stop
