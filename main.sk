@@ -61,6 +61,9 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     spawn {_e} at {_l}
     set {_e} to last spawned entity
 
+    if {_isplayer} is true:
+        set {_e}'s display name to "&f%{_p}%"
+
     wait 1 tick
 
     set {_timeout} to 0
