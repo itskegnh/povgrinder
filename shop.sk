@@ -146,7 +146,7 @@ function add_player(p: player, n: text):
     set field 0 of {_info} to "ADD_PLAYER"
 
     # send {_p} packet {_info}
-    send {_info} to {_p}
+    send packet {_info} to {_p}
 
 
 
