@@ -17,7 +17,7 @@ import:
     java.util.EnumSet
     java.util.List
 
-effect create clientside npc with id %number% with name %string% with uuid %string% #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
+effect create clientside npc with id %number% with name %string% with uuid %string%: #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
     parse:
         set {_packet} to new play_server_player_info packet
         set {_enum} to PlayerInfoAction.ADD_PLAYER
