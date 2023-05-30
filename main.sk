@@ -88,5 +88,7 @@ on load:
     add 1 to {abc}
     set {_a} to {abc}
     while {abc} = {_a}:
-        grind_mob(random element out of ("zombie", "skeleton" and "creeper"), false)
-        wait (random integer between 5 and 15) seconds
+        set {_mob} to random element out of ("zombie", "skeleton" and "creeper")
+        grind_mob({_mob}, false)
+        set {_} to random number between 5 and 15
+        wait {_} seconds
