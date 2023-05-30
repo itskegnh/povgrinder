@@ -34,40 +34,9 @@ effect send fake player named %string% to %player%:
         {_packet}.getPlayerInfoDataLists().write(0, {_list})
         send packet {_packet} to expression-2
 
-on load:
-    delete {players::*}
-
-    add "fwosty" to {players::*}
-    add "itsdan20" to {players::*}
-    add "chaos_clown" to {players::*}
-    add "fortniteGrinderr" to {players::*}
-    add "late_mnm" to {players::*}
-    add "Bminerrox" to {players::*}
-    add "Subdivides" to {players::*}
-    add "iamdogegamer" to {players::*}
-    add "CuteBananna" to {players::*}
-    add "TheRealDogeGamer" to {players::*}
-    add "SquidwardTentacles" to {players::*}
-    add "MrrSquarepants" to {players::*}
-    add "xX_starboy_Xx" to {players::*}
-    add "Enderboy6" to {players::*}
-
 on join:
-    # add 5 fake players to tab
-    loop 5 times:
-        add random element out of {players::*} to {_players::*}
-    
-    # remove duplicates
-    loop {_players::*}:
-        if {_p::*} does not contain loop-value:
-            add loop-value to {_p::*}
-
     send fake player named "fwosty" to player
     send fake player named "late_mnm" to player
     send fake player named "CuteBananna" to player
     send fake player named "xX_starboy_Xx" to player
     send fake player named "Enderboy6" to player
-
-    loop {_p::*}:
-        send fake player named loop-value to player
-
