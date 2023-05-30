@@ -108,6 +108,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
             clear metadata tag "ingame" of {_p}
     else:
         set {_p}'s gamemode to adventure
+        teleport {_p} to {_l}
 
         set {_timeout} to 0
         while {_e} is alive:
