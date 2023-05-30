@@ -107,7 +107,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
             clear metadata tag "ingame" of {_p}
     else:
-        send "PLAYER"
+        send "PLAYER" to {_p}
     
 command /grind:
     trigger:
