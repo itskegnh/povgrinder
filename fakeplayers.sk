@@ -17,7 +17,7 @@ import:
     java.util.EnumSet
     java.util.List
 
-effect fake player named %string%:
+effect send fake player named %string% to %player%:
     parse:
         set {_packet} to new play_server_player_info packet
         set {_enum} to PlayerInfoAction.ADD_PLAYER
@@ -32,5 +32,36 @@ effect fake player named %string%:
         set {_playerinfodata} to new PlayerInfoData({_profile}, 0, {_gameMode}, {_chatComponent})
         set {_list} to Collections.singletonList({_playerinfodata})
         {_packet}.getPlayerInfoDataLists().write(0, {_list})
-        send all players packet {_packet}
-        send "sent packet %{_packet}%" to all players
+        send packet {_packet} to expression-2
+
+on load:
+    delete {players::*}
+
+    add "fwosty" to {players::*}
+    add "itsdan20" to {players::*}
+    add "chaos_clown" to {players::*}
+    add "fortniteGrinderr" to {players::*}
+    add "l8oreo" to {players::*}
+    add "Bminerrox" to {players::*}
+    add "Subdivides" to {players::*}
+    add "iamdogegamer" to {players::*}
+    add "CuteBananna" to {players::*}
+    add "TheRealDogeGamer" to {players::*}
+    add "SquidwardTentacles" to {players::*}
+    add "MrrSquarepants" to {players::*}
+    add "xX_starboy_Xx" to {players::*}
+    add "Enderboy6" to {players::*}
+
+on join:
+    # add 5 fake players to tab
+    loop 5 times:
+        add random element out of {players::*} to {_players::*}
+    
+    # remove duplicates
+    loop {_players::*}:
+        if {_p::*} does not contain loop-value:
+            add loop-value to {_p::*}
+
+    loop {_p::*}:
+        send fake player named loop-value to player
+
