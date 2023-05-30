@@ -29,7 +29,13 @@ on join:
     set {deaths::%player's uuid%} to 10 if {deaths::%player's uuid%} is not set
     while player is online:
         scoreboard(player)
-        wait 5 ticks
+        if {autogrind::%player's uuid%} is true:
+            if metadata tag "ingame" of player is not true:
+                set metadata tag "ingame" of player to true
+                grind_mob("%player%", true)
+
+        wait 1 second
+
 
 on hunger bar change:
     cancel event
@@ -93,11 +99,10 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
         clear metadata tag "ingame" of {_p}
     
-command /grind <boolean=false>:
+command /grind:
     trigger:
         if metadata tag "ingame" of player is true:
-            if arg-2 is false:
-                send "&cYou are already grinding a mob." to player
+            send "&cYou are already grinding a mob." to player
             stop
 
 
