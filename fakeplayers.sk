@@ -17,7 +17,7 @@ import:
     java.util.EnumSet
     java.util.List
 
-effect create clientside npc named %string%:
+effect fake player named %string%:
     parse:
         set {_packet} to new play_server_player_info packet
         set {_enum} to PlayerInfoAction.ADD_PLAYER
