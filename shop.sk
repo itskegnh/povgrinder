@@ -10,6 +10,8 @@ function updateBoard():
 
         console command "/holo setline leaderboard %(loop-value + 1)% &7%{_p}% &8- &c%format({_v})%"
 
+every minute in world "world":
+    updateBoard()
 
 on load:
     delete {yaml::*}
