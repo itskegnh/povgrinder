@@ -147,3 +147,8 @@ command /wipe <player>:
         delete {entity::%arg-1's uuid%}
         send "&cYou have been wiped by %player%." to arg-1
         send "&cYou have wiped %arg-1%." to player
+
+on first join:
+    wait 5 seconds
+    send title "&4Gift!" with subtitle "&7You have been given &c100 blood&7." to player
+    add 100 to {deaths::%player's uuid%}
