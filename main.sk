@@ -1,0 +1,2 @@
+on hunger bar change:
+    cancel event

@@ -243,6 +243,3 @@ command /rebirth:
             send "&7You have &d&lREBIRTHED&7."
         else:
             send "&cYou need &n&c250 deaths&c to rebirth."
-
-on hunger bar change:
-    cancel event
