@@ -81,6 +81,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         scoreboard({_p})
     
 command /grind:
+    cooldown: 10 seconds
     trigger:
         grind_mob("%player%", true)
 
