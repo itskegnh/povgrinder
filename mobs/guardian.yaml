@@ -5,6 +5,6 @@ name: "&bGuardian"
 item: guardian spawn egg
 
 deaths: 170
-rebirths: 0
+rebirths: 2
 
 mob: guardian

@@ -5,6 +5,6 @@ name: "&8Wither Skeleton"
 item: wither skeleton spawn egg
 
 deaths: 160
-rebirths: 0
+rebirths: 1
 
 mob: wither skeleton
