@@ -82,6 +82,10 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         
         set {_a} to 1 + (({multi::%{_p}'s uuid%} ? 0)/10)
         set {_b} to ({boost::%{_p}'s uuid%} ? 1)*{_a}
+
+        chance of 0.1%:
+            send "&4Critical death! x100 blood!" to {_p}
+            set {_b} to {_b} * 100
     
         add round({_b}) to {deaths::%{_p}'s uuid%}
         send "You now have &n&c%format({deaths::%{_p}'s uuid%})% blood&7." to {_p}
@@ -104,7 +108,7 @@ command /autogrind:
             send "&cYou need at least %format(1000000)% blood to purchase auto grinding." to player
             stop
         
-        
+
 
 on load:
     add 1 to {abc}
