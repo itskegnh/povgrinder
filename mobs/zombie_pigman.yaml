@@ -1,0 +1,10 @@
+index: 12
+type: mob
+
+name: "&4Zombie Pigman"
+item: zombie pigman spawn egg
+
+deaths: 120
+rebirths: 1
+
+mob: zombie pigman

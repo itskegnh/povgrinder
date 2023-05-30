@@ -1,0 +1,10 @@
+index: 14
+type: mob
+
+name: "&dZoglin"
+item: zoglin spawn egg
+
+deaths: 140
+rebirths: 1
+
+mob: zoglin
