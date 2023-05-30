@@ -80,7 +80,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     if {_isplayer} is true:
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
     
-        add ({boost::%{_p}'s uuid%} ? 1) to {deaths::%{_p}'s uuid%}
+        add ({boost::%{_p}'s uuid%} ? 1)*(1 + ({multi::%{_p}'s uuid%} ? 0)) to {deaths::%{_p}'s uuid%}
         send "You now have &n&c%format({deaths::%{_p}'s uuid%})% blood&7." to {_p}
         scoreboard({_p})
 
