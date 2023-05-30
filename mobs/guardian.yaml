@@ -1,0 +1,10 @@
+index: 17
+type: mob
+
+name: "&bGuardian"
+item: guardian spawn egg
+
+deaths: 170
+rebirths: 0
+
+mob: guardian
