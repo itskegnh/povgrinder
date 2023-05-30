@@ -22,7 +22,7 @@ on load:
         set {_display} to yaml value "item" from loop-value
 
         set {_deaths} to yaml value "deaths" from loop-value
-        set {_blood_req} to ((2^{_index}))*5)
+        set {_blood_req} to ((2^{_index})*5)
         set {_blood_boost} to (((2^({_index}+1))*5)/10)
         add floor({_index}^1.5) to {_blood_req}
         set {_rebirths} to yaml value "rebirths" from loop-value
