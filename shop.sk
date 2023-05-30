@@ -141,6 +141,15 @@ on inventory click:
             close player's inventory
             stop
 
+function add_player(p: player, n: text):
+    set {_profile} to new GameProfile(UUID.randomUUID(), "fakePlayerName")
+    set {_fake_player} to getPlayerConstructor(p, {_profile})
+    set {_fake_player} to {_fake_player} invoked with "getHandle"
+    Field.setField({_fake_player}, "listName", getAsIChatBaseComponent({_profile}.getName()))
+
+
+
+
 # function gui_aura_shop
 
 # we have a working paginated mob shop.
