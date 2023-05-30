@@ -143,9 +143,11 @@ on inventory click:
 
 function add_player(p: player, n: text):
     set {_info} to new play_server_player_info packet
-    set field 0 of {_info} to "ADD_PLAYER"
+    # add_player action
+    set field 0 of {_info} to 0 
+    # set player's name
+    set field 1 of {_info} to {_n}
 
-    # send {_p} packet {_info}
     send packet {_info} to {_p}
 
 
