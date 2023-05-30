@@ -26,6 +26,7 @@ function scoreboard(p: player):
     set line 1 of {_p}'s scoreboard to "&fPOVgrinder&7.minehut.gg"
 
 on join:
+    set {deaths::%player's uuid%} to 10 if {deaths::%player's uuid%} is not set
     while player is online:
         scoreboard(player)
         wait 5 ticks
