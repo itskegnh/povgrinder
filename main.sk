@@ -29,6 +29,8 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     spawn {_e} at {_l}
     set {_e} to last spawned entity
 
+    wait 1 tick
+
     set {_timeout} to 0
     while {_e} is alive:
         set spectator target of {_p} to {_e}
