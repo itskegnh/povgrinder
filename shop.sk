@@ -171,7 +171,7 @@ command /shop:
 command /rebirth:
     trigger:
         if {deaths::%player's uuid%} < 10000:
-            send "&cYou need at least %format(10000)% deaths to rebirth." to player
+            send "&cYou need at least %format(10000)% blood to rebirth." to player
             stop
         
         remove 10000 from {deaths::%player's uuid%}
