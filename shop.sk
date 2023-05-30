@@ -200,6 +200,7 @@ on inventory click:
     event-inventory = metadata tag "gui.rebirth" of player
     cancel event
     index of event-slot = 22
+    set {_cost} to (2^{rebirths::%player's uuid%} ? 0)*10000
     close player's inventory
     if ({deaths::%player's uuid%} ? 0) < {_cost}:
         send "&cYou need at least %format({_cost})% blood to rebirth." to player
