@@ -184,11 +184,11 @@ command /rebirth:
     trigger:
         set {_cost} to (2^{rebirths::%player's uuid%} ? 0)*10000
         
-        set {_gui} to chest inventory with 3 rows named "Rebirth"
-        set slots (integers between 0 and 26) of {_gui} to black stained glass pane named "&7"
-        set slots (integers between 12 and 14) of {_gui} to magenta stained glass pane named "&7"
-        set slots (4 and 22) of {_gui} to purple stained glass pane named "&7"
-        set slot 13 of {_gui} to nether star named "&dRebirth" with lore "&7Cost: &c&n%format({_cost})%", "&7", "&7You will lose all your &cblood&7 by rebirthing."
+        set {_gui} to chest inventory with 5 rows named "Rebirth"
+        set slots (integers between 0 and 44) of {_gui} to black stained glass pane named "&7"
+        set slots (integers between 21 and 23) of {_gui} to magenta stained glass pane named "&7"
+        set slots (13 and 31) of {_gui} to purple stained glass pane named "&7"
+        set slot 22 of {_gui} to nether star named "&dRebirth" with lore "&7Cost: &c&n%format({_cost})%", "&7", "&7You will lose all your &cblood&7 by rebirthing."
 
         set metadata tag "gui.rebirth" of player to {_gui}
         open {_gui} to player
@@ -199,7 +199,7 @@ command /rebirth:
 on inventory click:
     event-inventory = metadata tag "gui.rebirth" of player
     cancel event
-    index of event-slot = 13
+    index of event-slot = 22
     close player's inventory
     if {deaths::%player's uuid%} < {_cost}:
         send "&cYou need at least %format({_cost})% blood to rebirth." to player
