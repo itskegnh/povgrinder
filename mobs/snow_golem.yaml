@@ -1,0 +1,10 @@
+index: 19
+type: mob
+
+name: "&fSnow Golem"
+item: suagr
+
+deaths: 190
+rebirths: 3
+
+mob: snow_golem
