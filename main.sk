@@ -79,10 +79,17 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         add 1 to {deaths::%{_p}'s uuid%}
         send "You now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
         scoreboard({_p})
+
+        clear metadata tag "ingame" of {_p}
     
 command /grind:
-    cooldown: 10 seconds
+    cooldown: 5 seconds
     trigger:
+        if metadata tag "ingame" of player is true:
+            send "&cYou are already grinding a mob." to player
+            stop
+
+        set metadata tag "ingame" of player to true
         grind_mob("%player%", true)
 
 on load:
