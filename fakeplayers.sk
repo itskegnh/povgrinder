@@ -46,4 +46,3 @@ effect create clientside npc with id %number% with name %string% with uuid %stri
         send all players packet {_npcspawn}
     
 # on join:
-    # create clientside npc with id 1 with name "this is a test" with uuid "0
