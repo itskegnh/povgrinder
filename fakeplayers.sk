@@ -47,4 +47,3 @@ effect create clientside npc with id %number% with name %string% with uuid %stri
     
 # on join:
 # pick a random uuid
-create clientside npc with id 1 with name "this is a test" with uuid "ba292941-a76f-4637-b4fe-bf66899cb1f7" at location player's location
