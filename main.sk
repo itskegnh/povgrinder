@@ -25,6 +25,10 @@ function scoreboard(p: player):
     set line 2 of {_p}'s scoreboard to "&8&8"
     set line 1 of {_p}'s scoreboard to "&cPOVgrinder&7.minehut.gg"
 
+on join:
+    while player is online:
+        scoreboard(player)
+        wait 5 ticks
 
 on hunger bar change:
     cancel event
