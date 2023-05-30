@@ -17,10 +17,8 @@ import:
     java.util.EnumSet
     java.util.List
 
-effect create clientside npc with id %number% with name %string% with uuid %string% at location %location%: #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
+effect create clientside npc with id %number% with name %string% with uuid %string% #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
     parse:
-        set {_npcspawn} to new play_server_named_entity_spawn packet
-
         set {_packet} to new play_server_player_info packet
         set {_enum} to PlayerInfoAction.ADD_PLAYER
         set {_enumSet} to EnumSet.of({_enum})
@@ -35,15 +33,3 @@ effect create clientside npc with id %number% with name %string% with uuid %stri
         set {_list} to Collections.singletonList({_playerinfodata})
         {_packet}.getPlayerInfoDataLists().write(1, {_list})
         send all players packet {_packet}
-
-        set field 0 of {_npcspawn} to expr-1
-        set field 1 of {_npcspawn} to expr-3
-        set field 2 of {_npcspawn} to expr-4's x-loc
-        set field 3 of {_npcspawn} to expr-4's y-loc
-        set field 4 of {_npcspawn} to expr-4's z-loc
-        set field 5 of {_npcspawn} to 0
-        set field 6 of {_npcspawn} to 0
-        send all players packet {_npcspawn}
-    
-# on join:
-# pick a random uuid
