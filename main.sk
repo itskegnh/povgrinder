@@ -93,22 +93,16 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
         clear metadata tag "ingame" of {_p}
     
-command /grind:
+command /grind <boolean=false>:
     trigger:
         if metadata tag "ingame" of player is true:
-            send "&cYou are already grinding a mob." to player
+            if arg-2 is false:
+                send "&cYou are already grinding a mob." to player
             stop
+
 
         set metadata tag "ingame" of player to true
         grind_mob("%player%", true)
-
-command /autogrind:
-    trigger:
-        if {deaths::%player's uuid%} < 1000000:
-            send "&cYou need at least %format(1000000)% blood to purchase auto grinding." to player
-            stop
-        
-
 
 on load:
     add 1 to {abc}

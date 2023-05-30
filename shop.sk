@@ -215,3 +215,40 @@ on inventory click:
     add 1 to {rebirths::%player's uuid%}
     send "&dYou have rebirthed! You now have %format({rebirths::%player's uuid%})% rebirths." to player
     send "&d%player% has just rebirthed!" to all players
+
+command /autogrind:
+    trigger:
+        if {autogrind::%player's uuid%} is not set:
+            set {_cost} to 10000000
+            
+            set {_gui} to chest inventory with 5 rows named "Autogrind"
+            set slots (integers between 0 and 44) of {_gui} to black stained glass pane named "&7"
+            set slots (integers between 21 and 23) of {_gui} to lime stained glass pane named "&7"
+            set slots (13 and 31) of {_gui} to green stained glass pane named "&7"
+            set slot 22 of {_gui} to compass named "&2Autogrind" with lore "&7Cost: &c&n%format({_cost})%"
+            set metadata tag "gui.autogrind" of player to {_gui}
+            open {_gui} to player
+        else:
+            if {autogrind::%player's uuid%} is true:
+                set {autogrind::%player's uuid%} to false
+                send "&cAutogrind disabled." to player
+            else:
+                set {autogrind::%player's uuid%} to true
+                send "&aAutogrind enabled." to player
+
+
+on inventory click:
+    event-inventory = metadata tag "gui.autogrind" of player
+    set {_cost} to 10000000
+    cancel event
+    index of event-slot = 22
+    if {deaths::%player's uuid%} < {_cost}:
+        send "&cYou need at least %format({_cost})% blood to purchase this." to player
+        stop
+    else:
+        remove {_cost} from {deaths::%player's uuid%}
+        set {autogrind::%player's uuid%} to true
+        send "&aAutogrind enabled." to player
+        close player's inventory
+        stop
+        
