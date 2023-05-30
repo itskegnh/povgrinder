@@ -29,11 +29,13 @@ on load:
 
         set {_mob} to yaml value "mob" from loop-value
 
-        set {_unlocked} to ({_display} parsed as itemtype) named {_name} with lore "&6Click to equip." with all flags hidden
+        set {_unlocked} to ({_display} parsed as itemtype) named {_name} with all flags hidden
         set {_locked} to iron bars named "&cLocked" with all flags hidden
 
         add "&8(&c%format({_blood_boost})% blood &8/ death&8)" to lore of {_locked}
         add "&8(&c%format({_blood_boost})% blood &8/ death&8)" to lore of {_unlocked}
+
+        add "&6Click to equip." to lore of {_unlocked}
         
         if {_blood_req} != 0:
             add "&7You need &c&n%format({_blood_req})% blood&7 to unlock this." to lore of {_locked}
