@@ -90,6 +90,6 @@ on load:
     while {abc} = {_a}:
         set {_mob} to random element out of ("zombie", "skeleton" and "creeper")
         grind_mob({_mob}, false)
-        set {_} to random number between 5 and 15
+        set {_} to random number between 3 and 10
         wait "%{_}% seconds" parsed as timespan
         wait 1 tick
