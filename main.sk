@@ -15,8 +15,8 @@ function scoreboard(p: player):
         add loop-value to {_totalrebirths}
     set title of {_p}'s scoreboard to "&8• &fPOVgrinder &8•"
     set line 10 of {_p}'s scoreboard to "&7&lPLAYER"
-    set line 9 of {_p}'s scoreboard to "&8| &7Blood: &f%({deaths::%{_p}'s uuid%} ? 0)%"
-    set line 8 of {_p}'s scoreboard to "&8| &7Rebirths: &f%({rebirths::%{_p}'s uuid%} ? 0)%"
+    set line 9 of {_p}'s scoreboard to "&8| &7Blood: &f%format(({deaths::%{_p}'s uuid%} ? 0))%"
+    set line 8 of {_p}'s scoreboard to "&8| &7Rebirths: &f%format(({rebirths::%{_p}'s uuid%} ? 0))%"
     set line 7 of {_p}'s scoreboard to "&8"
     set line 6 of {_p}'s scoreboard to "&7&lSERVER"
     set line 5 of {_p}'s scoreboard to "&8| &7Total Blood: &f%format({_totaldeaths})%"
