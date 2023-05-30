@@ -83,7 +83,6 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         clear metadata tag "ingame" of {_p}
     
 command /grind:
-    cooldown: 5 seconds
     trigger:
         if metadata tag "ingame" of player is true:
             send "&cYou are already grinding a mob." to player
