@@ -17,7 +17,7 @@ import:
     java.util.EnumSet
     java.util.List
 
-effect create clientside npc with id %number% with name %string% with uuid %string%: #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
+effect create clientside npc with name %string% with uuid %string%: #with skin %skin% with uuid %string% with 2nd skin layer %boolean% at location %location% for %players%:
     parse:
         set {_packet} to new play_server_player_info packet
         set {_enum} to PlayerInfoAction.ADD_PLAYER
@@ -26,11 +26,11 @@ effect create clientside npc with id %number% with name %string% with uuid %stri
         continue
 
     trigger:
-        set {_profile} to new WrappedGameProfile(expression-3, expression-2)
+        set {_profile} to new WrappedGameProfile(expression-2, expression-1)
         set {_gameMode} to NativeGameMode.CREATIVE
-        set {_chatComponent} to WrappedChatComponent.fromText(expression-2)
+        set {_chatComponent} to WrappedChatComponent.fromText(expression-1)
         set {_playerinfodata} to new PlayerInfoData({_profile}, 0, {_gameMode}, {_chatComponent})
         set {_list} to Collections.singletonList({_playerinfodata})
         {_packet}.getPlayerInfoDataLists().write(1, {_list})
         send all players packet {_packet}
-        send "sent acket %{_packet}%" to all players
+        send "sent packet %{_packet}%" to all players
