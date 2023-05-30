@@ -61,6 +61,8 @@ on join:
     loop {_players::*}:
         if {_p::*} does not contain loop-value:
             add loop-value to {_p::*}
+        else:
+            send "duplicate found: %loop-value%" 
 
     loop {_p::*}:
         send fake player named "%loop-value%" to player
