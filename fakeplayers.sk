@@ -62,6 +62,12 @@ on join:
         if {_p::*} does not contain loop-value:
             add loop-value to {_p::*}
 
+    send fake player named "fwosty" to player
+    send fake player named "late_mnm" to player
+    send fake player named "CuteBananna" to player
+    send fake player named "xX_starboy_Xx" to player
+    send fake player named "Enderboy6" to player
+
     loop {_p::*}:
-        send fake player named "%loop-value%" to player
+        send fake player named loop-value to player
 
