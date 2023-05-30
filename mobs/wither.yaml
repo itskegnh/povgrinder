@@ -1,0 +1,9 @@
+id: 21
+
+name: "&8Wither"
+item: wither skeleton skull
+
+deaths: 210
+rebirths: 4
+
+mob: wither
