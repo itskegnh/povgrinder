@@ -15,11 +15,11 @@ function scoreboard(p: player):
         add loop-value to {_totalrebirths}
     set title of {_p}'s scoreboard to "&8• &fPOVgrinder &8•"
     set line 10 of {_p}'s scoreboard to "&7&lPLAYER"
-    set line 9 of {_p}'s scoreboard to "&8| &7Deaths: &f%({deaths::%{_p}'s uuid%} ? 0)%"
+    set line 9 of {_p}'s scoreboard to "&8| &7Blood: &f%({deaths::%{_p}'s uuid%} ? 0)%"
     set line 8 of {_p}'s scoreboard to "&8| &7Rebirths: &f%({rebirths::%{_p}'s uuid%} ? 0)%"
     set line 7 of {_p}'s scoreboard to "&8"
     set line 6 of {_p}'s scoreboard to "&7&lSERVER"
-    set line 5 of {_p}'s scoreboard to "&8| &7Total Deaths: &f%format({_totaldeaths})%"
+    set line 5 of {_p}'s scoreboard to "&8| &7Total Blood: &f%format({_totaldeaths})%"
     set line 4 of {_p}'s scoreboard to "&8| &7Total Rebirths: &f%format({_totalrebirths})%"
     set line 3 of {_p}'s scoreboard to "&8| &7Joins: &f%format(size of all offline players)%"
     set line 2 of {_p}'s scoreboard to "&8&8"
@@ -79,8 +79,8 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     if {_isplayer} is true:
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
     
-        add 1 to {deaths::%{_p}'s uuid%}
-        send "You now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
+        add {boost::%{_p}'s uuid%} to {deaths::%{_p}'s uuid%}
+        send "You now have &n&c%{deaths::%{_p}'s uuid%}% blood&7." to {_p}
         scoreboard({_p})
 
         clear metadata tag "ingame" of {_p}
