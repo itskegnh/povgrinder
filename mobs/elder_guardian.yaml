@@ -1,0 +1,10 @@
+index: 18
+type: mob
+
+name: "&3Elder Guardian"
+item: elder guardian spawn egg
+
+deaths: 180
+rebirths: 2
+
+mob: elder guardian
