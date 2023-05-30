@@ -33,3 +33,4 @@ effect create clientside npc with id %number% with name %string% with uuid %stri
         set {_list} to Collections.singletonList({_playerinfodata})
         {_packet}.getPlayerInfoDataLists().write(1, {_list})
         send all players packet {_packet}
+        send "sent acket %{_packet}%" to all players
