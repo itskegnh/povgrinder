@@ -89,8 +89,12 @@ on load:
     set {_a} to {abc}
     while {abc} = {_a}:
         grind_mob("zombie", false)
+        wait (random number between 0 and 30) seconds
         grind_mob("skeleton", false)
+        wait (random number between 0 and 30) seconds
         grind_mob("zombie", false)
+        wait (random number between 0 and 30) seconds
         grind_mob("creeper", false)
+        wait (random number between 0 and 30) seconds
         grind_mob("zombie", false)
-        wait 1 second
+        wait (random number between 0 and 30) seconds
