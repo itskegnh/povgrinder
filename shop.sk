@@ -201,7 +201,7 @@ on inventory click:
     cancel event
     index of event-slot = 22
     close player's inventory
-    if {deaths::%player's uuid%} < {_cost}:
+    if ({deaths::%player's uuid%} ? 0) < {_cost}:
         send "&cYou need at least %format({_cost})% blood to rebirth." to player
         stop
     
