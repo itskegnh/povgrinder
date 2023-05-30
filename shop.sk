@@ -183,17 +183,34 @@ command /shop:
 command /rebirth:
     trigger:
         set {_cost} to (2^{rebirths::%player's uuid%} ? 0)*10000
-        if {deaths::%player's uuid%} < {_cost}:
-            send "&cYou need at least %format({_cost})% blood to rebirth." to player
-            stop
+        
+        set {_gui} to chest inventory with 3 rows named "Rebirth"
+        set slots (integers between 0 and 26) of {_gui} to black stained glass pane named "&7"
+        set slots (integers between 12 and 14) of {_gui} to magenta stained glass pane named "&7"
+        set slots (4 and 22) of {_gui} to purple stained glass pane named "&7"
+        set slot 13 of {_gui} to nether star named "&dRebirth" with lore "&7Cost: &c&n%format({_cost})%", "&7", "&7You will lose all your &cblood&7 by rebirthing."
+
+        set metadata tag "gui.rebirth" of {_p} to {_gui}
+        open {_gui} to {_p}
+
         
         
-        set {deaths::%player's uuid%} to 10
-        delete {entity::%player's uuid%}
-        delete {boost::%player's uuid%}
 
-        add 1 to {multi::%player's uuid%}
+on inventory click:
+    event-inventory = metadata tag "gui.rebirth" of player
+    cancel event
+    index of event-slot = 13
+    close player's inventory
+    if {deaths::%player's uuid%} < {_cost}:
+        send "&cYou need at least %format({_cost})% blood to rebirth." to player
+        stop
+    
+    set {deaths::%player's uuid%} to 10
+    delete {entity::%player's uuid%}
+    delete {boost::%player's uuid%}
 
-        add 1 to {rebirths::%player's uuid%}
-        send "&dYou have rebirthed! You now have %format({rebirths::%player's uuid%})% rebirths." to player
-        send "&d%player% has just rebirthed!" to all players
+    add 1 to {multi::%player's uuid%}
+
+    add 1 to {rebirths::%player's uuid%}
+    send "&dYou have rebirthed! You now have %format({rebirths::%player's uuid%})% rebirths." to player
+    send "&d%player% has just rebirthed!" to all players
