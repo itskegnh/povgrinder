@@ -2,6 +2,14 @@ on join:
     set {deaths::%player's uuid%} to 0 if {deaths::%player's uuid%} is not set
     set {rebirths::%player's uuid%} to 0 if {rebirths::%player's uuid%} is not set
 
+function updateBoard():
+    set {_sorted::*} to sorted indices of {deaths::*} in ascending order
+    loop 10 times:
+        set {_p} to {_sorted::%loop-number%} parsed as offline player
+        set {_v} to {deaths::%{_p}'s uuid%}
+
+        console command "/holo setline leaderboard %(loop-value + 1)% &7%{_p}% &8- &c%format({_v})%"
+
 
 on load:
     delete {yaml::*}
