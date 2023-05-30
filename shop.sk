@@ -88,7 +88,7 @@ function gui_mob_shop(p: player, i: integer):
     
     if {_i} > 0:
         set slot 18 of {_gui} to arrow named "&cPrevious" with all flags hidden
-    set slot 22 of {_gui} to door named "&6Back" with all flags hidden
+    set slot 22 of {_gui} to oak door named "&6Back" with all flags hidden
 
     if {_i} < floor(({shop::mobs::total}-1) / 9):
         set slot 26 of {_gui} to arrow named "&aNext" with all flags hidden
