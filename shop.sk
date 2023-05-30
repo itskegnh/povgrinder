@@ -35,14 +35,14 @@ on load:
         if {_blood_boost} < 1:
             set {_blood_boost} to 1
 
-        add "&8(&c%{_blood_boost}% blood &8/ death&8)" to lore of {_locked}
-        add "&8(&c%{_blood_boost}% blood &8/ death&8)" to lore of {_unlocked}
+        add "&8(&c%format({_blood_boost})% blood &8/ death&8)" to lore of {_locked}
+        add "&8(&c%format({_blood_boost})% blood &8/ death&8)" to lore of {_unlocked}
         
         if {_blood_req} != 0:
-            add "&7You need &c&n%{_blood_req}% blood&7 to unlock this." to lore of {_locked}
+            add "&7You need &c&n%format({_blood_req})% blood&7 to unlock this." to lore of {_locked}
         
         if {_rebirths} != 0:
-            add "&7You need &d&n%{_rebirths}% rebirths&7 to unlock this." to lore of {_locked}
+            add "&7You need &d&n%format({_rebirths})% rebirths&7 to unlock this." to lore of {_locked}
         
         set {shop::mobs::%{_index}%::unlocked} to {_unlocked}
         set {shop::mobs::%{_index}%::locked} to {_locked}
