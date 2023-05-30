@@ -23,7 +23,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         set {_p}'s gamemode to spectator
         send title "&6Grinding..." with subtitle "&7Use f5 for the best experience." to {_p}
         send "%{entity::%{_p}'s uuid%}%" to {_p}
-        set {_e} to ({entity::%{_p}'s uuid%} ? "zombie") parsed as entitytype
+        set {_e} to "%({entity::%{_p}'s uuid%} ? "zombie")%" parsed as entitytype
         set {_e} to "zombie" parsed as entitytype
         send "%{_e}%" to {_p}
     else:
