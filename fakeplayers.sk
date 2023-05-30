@@ -34,9 +34,9 @@ effect send fake player named %string% to %player%:
         {_packet}.getPlayerInfoDataLists().write(0, {_list})
         send packet {_packet} to expression-2
 
-on join:
-    send fake player named "fwosty" to player
-    send fake player named "late_mnm" to player
-    send fake player named "CuteBananna" to player
-    send fake player named "xX_starboy_Xx" to player
-    send fake player named "Enderboy6" to player
+# on join:
+#     send fake player named "fwosty" to player
+#     send fake player named "late_mnm" to player
+#     send fake player named "CuteBananna" to player
+#     send fake player named "xX_starboy_Xx" to player
+#     send fake player named "Enderboy6" to player
