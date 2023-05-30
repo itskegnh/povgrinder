@@ -82,6 +82,9 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         add 1 to {_timeout}
         if {_timeout} is greater than 200:
             kill {_e}
+        
+        if block below {_e} is hopper:
+            kill {_e}
 
     if {_isplayer} is true:
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
