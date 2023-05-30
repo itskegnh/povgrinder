@@ -1,9 +1,9 @@
-id: 21
+id: 22
 
 name: "&dEnder Dragon"
 item: dragon egg
 
-deaths: 210
+deaths: 220
 rebirths: 4
 
 mob: ender dragon
