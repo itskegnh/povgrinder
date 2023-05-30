@@ -4,7 +4,7 @@ type: mob
 name: "&2Zombie"
 item: zombie spawn egg
 
-deaths: 1
+deaths: 0
 rebirths: 0
 
 mob: zombie

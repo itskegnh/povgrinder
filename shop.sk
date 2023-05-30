@@ -22,15 +22,21 @@ on load:
         set {_display} to yaml value "item" from loop-value
 
         set {_deaths} to yaml value "deaths" from loop-value
+        set {_blood_req} to ((2^floor({_deaths}/10))*5)
+        set {_blood_boost} to ({_blood_req}/10)
+        add floor({_index}^1.5) to {_blood_req}
         set {_rebirths} to yaml value "rebirths" from loop-value
 
         set {_mob} to yaml value "mob" from loop-value
 
         set {_unlocked} to ({_display} parsed as itemtype) named {_name} with lore "&6Click to equip." with all flags hidden
         set {_locked} to iron bars named "&cLocked" with all flags hidden
+
+        add "&8(&c%{_blood_boost}% blood &8/ death&8)" to lore of {_locked}
+        add "&8(&c%{_blood_boost}% blood &8/ death&8)" to lore of {_unlocked}
         
-        if {_deaths} != 0:
-            add "&7You need &c&n%{_deaths}% deaths&7 to unlock this." to lore of {_locked}
+        if {_blood_req} != 0:
+            add "&7You need &c&n%{_blood_req}% deaths&7 to unlock this." to lore of {_locked}
         
         if {_rebirths} != 0:
             add "&7You need &d&n%{_rebirths}% rebirths&7 to unlock this." to lore of {_locked}
