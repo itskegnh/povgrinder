@@ -103,6 +103,8 @@ on quit:
     send action bar "&e%player% &eleft the game." to all players
 
 on chat:
-    set chat format to "&&[&c%{deaths::%player's uuid%}%&7][&d%{rebirths::%player's uuid%}%&7] %&f%player's prefix%%player%&8 » &f%message%"
+    set {_d} to {deaths::%player's uuid%}
+    set {_r} to {rebirths::%player's uuid%}
+    set chat format to "&&[&c%{_d}%&7][&d%{_r}%&7] %&f%player's prefix%%player%&8 » &f%message%"
 
 
