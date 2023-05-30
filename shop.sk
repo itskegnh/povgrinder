@@ -153,10 +153,6 @@ on inventory click:
 # player's right click their lootboxes to open them.
 # leader boards
 
-command /spawn:
-    trigger:
-        teleport player to {spawn}
-
 command /shop:
     trigger:
         player's y coord >= 120

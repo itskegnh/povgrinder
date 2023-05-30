@@ -1,2 +1,13 @@
 on hunger bar change:
     cancel event
+
+on join:
+    wait 5 ticks
+    teleport player to {spawn}
+    set player's gamemode to adventure
+
+
+command /spawn:
+    trigger:
+        teleport player to {spawn}
+        set player's gamemode to adventure
