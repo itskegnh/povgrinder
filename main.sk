@@ -69,8 +69,9 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     else:
         set {_e} to {_playerorentity} parsed as entitytype
 
-    spawn {_e} at {_l}
-    set {_e} to last spawned entity
+    if {_e} is not {_p}:
+        spawn {_e} at {_l}
+        set {_e} to last spawned entity
 
     if {_isplayer} is true:
         set {_e}'s display name to "&f%{_p}%"
