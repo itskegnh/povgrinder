@@ -73,39 +73,41 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         spawn {_e} at {_l}
         set {_e} to last spawned entity
 
-    if {_isplayer} is true:
-        set {_e}'s display name to "&f%{_p}%"
-
-    wait 1 tick
-
-    set {_timeout} to 0
-    while {_e} is alive:
-        set spectator target of {_p} to {_e}
-        set path target with speed 1 of {_e} to {target}
+        if {_isplayer} is true:
+            set {_e}'s display name to "&f%{_p}%"
 
         wait 1 tick
-        add 1 to {_timeout}
-        if {_timeout} is greater than 200:
-            kill {_e}
+
+        set {_timeout} to 0
+        while {_e} is alive:
+            set spectator target of {_p} to {_e}
+            set path target with speed 1 of {_e} to {target}
+
+            wait 1 tick
+            add 1 to {_timeout}
+            if {_timeout} is greater than 200:
+                kill {_e}
+            
+            if block below {_e} is hopper:
+                kill {_e}
+
+        if {_isplayer} is true:
+            send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
+            
+            set {_a} to 1 + (({multi::%{_p}'s uuid%} ? 0)/10)
+            set {_b} to ({boost::%{_p}'s uuid%} ? 1)*{_a}
+
+            chance of 0.1%:
+                send "&4Critical death! x100 blood!" to {_p}
+                set {_b} to {_b} * 100
         
-        if block below {_e} is hopper:
-            kill {_e}
+            add round({_b}) to {deaths::%{_p}'s uuid%}
+            send "You now have &n&c%format({deaths::%{_p}'s uuid%})% blood&7." to {_p}
+            scoreboard({_p})
 
-    if {_isplayer} is true:
-        send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
-        
-        set {_a} to 1 + (({multi::%{_p}'s uuid%} ? 0)/10)
-        set {_b} to ({boost::%{_p}'s uuid%} ? 1)*{_a}
-
-        chance of 0.1%:
-            send "&4Critical death! x100 blood!" to {_p}
-            set {_b} to {_b} * 100
-    
-        add round({_b}) to {deaths::%{_p}'s uuid%}
-        send "You now have &n&c%format({deaths::%{_p}'s uuid%})% blood&7." to {_p}
-        scoreboard({_p})
-
-        clear metadata tag "ingame" of {_p}
+            clear metadata tag "ingame" of {_p}
+    else:
+        send "PLAYER"
     
 command /grind:
     trigger:
