@@ -1,10 +1,10 @@
-index: 6
+index: 7
 type: mob
 
 name: "&6Cow"
 item: cow spawn egg
 
-deaths: 60
+deaths: 70
 rebirths: 0
 
 mob: cow

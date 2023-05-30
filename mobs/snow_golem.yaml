@@ -1,10 +1,10 @@
-index: 11
+index: 12
 type: mob
 
 name: "&fSnow Golem"
 item: pumpkin
 
-deaths: 110
+deaths: 120
 rebirths: 1
 
 mob: snow golem

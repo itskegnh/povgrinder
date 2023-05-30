@@ -1,0 +1,10 @@
+index: 6
+type: mob
+
+name: "&cVindicator"
+item: vindicator spawn egg
+
+deaths: 60
+rebirths: 0
+
+mob: vindicator

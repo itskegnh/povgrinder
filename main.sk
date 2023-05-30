@@ -98,6 +98,14 @@ command /grind:
         set metadata tag "ingame" of player to true
         grind_mob("%player%", true)
 
+command /autogrind:
+    trigger:
+        if {deaths::%player's uuid%} < 1000000:
+            send "&cYou need at least %format(1000000)% blood to purchase auto grinding." to player
+            stop
+        
+        
+
 on load:
     add 1 to {abc}
     set {_a} to {abc}

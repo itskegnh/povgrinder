@@ -1,10 +1,10 @@
-index: 7
+index: 8
 type: mob
 
 name: "&fSheep"
 item: sheep spawn egg
 
-deaths: 70
+deaths: 80
 rebirths: 0
 
 mob: sheep
