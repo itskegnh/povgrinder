@@ -5,6 +5,6 @@ name: "&fIron Golem"
 item: iron ingot
 
 deaths: 200
-rebirths: 0
+rebirths: 3
 
 mob: iron golem
