@@ -48,9 +48,6 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         send "You now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
         scoreboard({_p})
     
-    
-    
-
-    
-    
-    
+command /grind:
+    trigger:
+        grind_mob("%player%", true)
