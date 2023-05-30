@@ -91,4 +91,5 @@ on load:
         set {_mob} to random element out of ("zombie", "skeleton" and "creeper")
         grind_mob({_mob}, false)
         set {_} to random number between 5 and 15
-        wait {_} seconds
+        wait "%{_}% seconds" parsed as timespan
+        wait 1 tick
