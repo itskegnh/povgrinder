@@ -63,6 +63,8 @@ on inventory click:
         cancel event
         if index of event-slot = 11:
             gui_mob_shop(player, 0)
+        if index of event-slot = 13:
+            send "&cThe Aura Shop is currently under development." to player
         if index of event-slot = 22:
             close player's inventory
 

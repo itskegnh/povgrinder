@@ -31,6 +31,6 @@ effect create clientside npc named %string%:
         set {_chatComponent} to WrappedChatComponent.fromText(expression-1)
         set {_playerinfodata} to new PlayerInfoData({_profile}, 0, {_gameMode}, {_chatComponent})
         set {_list} to Collections.singletonList({_playerinfodata})
-        {_packet}.getPlayerInfoDataLists().write(1, {_list})
+        {_packet}.getPlayerInfoDataLists().write(0, {_list})
         send all players packet {_packet}
         send "sent packet %{_packet}%" to all players
