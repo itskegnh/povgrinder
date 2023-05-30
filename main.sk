@@ -1,3 +1,31 @@
+function format(n: number) :: text:
+    set {_data} to "QT,18|Q,15|T,12|B,9|M,6|k,3"
+    loop split {_data} at "|":
+        set {_s::*} to split loop-value at ","
+        {_n} >= 10 ^ {_s::2} parsed as number
+        return "%{_n} / 10 ^ {_s::2} parsed as number%%{_s::1}%"
+        return "%{_n}%"
+
+function scoreboard(p: player):
+    set {_totaldeaths} to 0
+    set {_totalrebirths} to 0
+    loop {deaths::*}:
+        add loop-value to {_totaldeaths}
+    loop {rebirths::*}:
+        add loop-value to {_totalrebirths}
+    set title of {_p}'s scoreboard to "&8• &cPOVgrinder &8•"
+    set line 10 of {_p}'s scoreboard to "&7&lPLAYER"
+    set line 9 of {_p}'s scoreboard to "&8| &7Deaths: &c%({deaths::%{_p}'s uuid%} ? 0)%"
+    set line 8 of {_p}'s scoreboard to "&8| &7Rebirths: &c%({rebirths::%{_p}'s uuid%} ? 0)%"
+    set line 7 of {_p}'s scoreboard to "&8"
+    set line 6 of {_p}'s scoreboard to "&7&lSERVER"
+    set line 5 of {_p}'s scoreboard to "&8| &7Total Deaths: &c%format({_totaldeaths})%"
+    set line 4 of {_p}'s scoreboard to "&8| &7Total Rebirths: &c%format({_totalrebirths})%"
+    set line 3 of {_p}'s scoreboard to "&8| &7Joins: &c%format(size of all offline players)%"
+    set line 2 of {_p}'s scoreboard to "&8&8"
+    set line 1 of {_p}'s scoreboard to "&cPOVgrinder&7.minehut.gg"
+
+
 on hunger bar change:
     cancel event
 
