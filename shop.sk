@@ -182,8 +182,9 @@ command /shop:
 
 command /rebirth:
     trigger:
-        if {deaths::%player's uuid%} < 10000:
-            send "&cYou need at least %format(10000)% blood to rebirth." to player
+        set {_cost} to (2^{rebirts::%player's uuid%} ? 0)*10000
+        if {deaths::%player's uuid%} < {_cost}:
+            send "&cYou need at least %format({_cost})% blood to rebirth." to player
             stop
         
         
