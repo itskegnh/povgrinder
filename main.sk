@@ -83,3 +83,14 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 command /grind:
     trigger:
         grind_mob("%player%", true)
+
+on load:
+    add 1 to {abc}
+    set {_a} to {abc}
+    while {abc} = {_a}:
+        grind_mob("zombie", false)
+        grind_mob("skeleton", false)
+        grind_mob("zombie", false)
+        grind_mob("creeper", false)
+        grind_mob("zombie", false)
+        wait 1 second
