@@ -1,0 +1,10 @@
+index: 15
+type: mob
+
+name: "&cBlaze"
+item: blaze spawn egg
+
+deaths: 150
+rebirths: 1
+
+mob: blaze
