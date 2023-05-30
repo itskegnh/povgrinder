@@ -40,8 +40,8 @@ on join:
 on hunger bar change:
     cancel event
 
-on damage of player:
-    cancel event
+# on damage of player:
+#     cancel event
 
 on join:
     wait 5 ticks
@@ -59,9 +59,13 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
     if {_isplayer} is true:
         set {_p} to {_playerorentity} parsed as player
-        set {_p}'s gamemode to spectator
+        set {_e} to ({entity::%{_p}'s uuid%} ? "zombie")
+        if {_e} is not "player":
+            set {_e} to "%{_e}%" parsed as entitytype
+            set {_p}'s gamemode to spectator
+        else:
+            set {_e} to {_p}
         send title "&6Grinding..." with subtitle "&7Use f5 for the best experience." to {_p}
-        set {_e} to "%({entity::%{_p}'s uuid%} ? "zombie")%" parsed as entitytype
     else:
         set {_e} to {_playerorentity} parsed as entitytype
 

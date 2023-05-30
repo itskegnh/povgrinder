@@ -1,0 +1,10 @@
+index: 23
+type: mob
+
+name: "&cPlayer"
+item: player head
+
+deaths: 230
+rebirths: 15
+
+mob: player
