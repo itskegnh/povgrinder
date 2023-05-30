@@ -155,5 +155,6 @@ on inventory click:
 
 command /shop:
     trigger:
-        player's y coord >= 120
+        if player's y coord < 120:
+            player command "/spawn"
         gui_shop(player)

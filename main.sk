@@ -1,13 +1,54 @@
 on hunger bar change:
     cancel event
 
+on damage:
+    cancel event
+
 on join:
     wait 5 ticks
     teleport player to {spawn}
     set player's gamemode to adventure
-
+    apply night vision without particles to player for 999 days
 
 command /spawn:
     trigger:
         teleport player to {spawn}
         set player's gamemode to adventure
+
+function grind_mob(playerorentity: text, isplayer: boolean):
+    set {_l} to location(random number between -138 and -123, 91, random number between -292 and -308)
+
+    if {_isplayer} is true:
+        set {_p} to {_playerorentity} parsed as player
+        set {_p}'s gamemode to spectator
+        send title "&6Grinding..." with subtitle "&7Use f5 for the best experience."
+        set {_e} to ({entity::%{_p}'s uuid%} ? "zombie") parsed as entitytype
+    else:
+        set {_e} to {_playerorentity} parsed as entitytype
+
+    spawn {_e} at {_l}
+    set {_e} to last spawned entity
+
+    set {_timeout} to 0
+    while {_e} is alive:
+        set spectator target of player to {_e}
+        set path target with speed 1 of {_e} to {target}
+
+        wait 1 tick
+        add 1 to {_timeout}
+        if {_timeout} is greater than 200:
+            kill {_e}
+
+    if {_isplayer} is true:
+        send title "&cMob died." with subtitle "&7Access the shop at &4/spawn"
+    
+        add 1 to {deaths::%{_p}'s uuid%}
+        send "You now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
+        scoreboard({_p})
+    
+    
+    
+
+    
+    
+    
