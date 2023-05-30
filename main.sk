@@ -121,6 +121,6 @@ on quit:
 on chat:
     set {_d} to ({deaths::%player's uuid%} ? 0)
     set {_r} to ({rebirths::%player's uuid%} ? 0)
-    set chat format to "&8[&c%{_d}%&8][&d%{_r}%&8] &f%player's prefix%%player%&8 » &f%message%"
+    set chat format to "&8[&c%format({_d})%&8][&d%format({_r})%&8] &f%player's prefix%%player%&8 » &f%message%"
 
 
