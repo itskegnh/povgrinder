@@ -21,7 +21,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
     if {_isplayer} is true:
         set {_p} to {_playerorentity} parsed as player
         set {_p}'s gamemode to spectator
-        send title "&6Grinding..." with subtitle "&7Use f5 for the best experience."
+        send title "&6Grinding..." with subtitle "&7Use f5 for the best experience." to {_p}
         set {_e} to ({entity::%{_p}'s uuid%} ? "zombie") parsed as entitytype
     else:
         set {_e} to {_playerorentity} parsed as entitytype
@@ -31,7 +31,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
     set {_timeout} to 0
     while {_e} is alive:
-        set spectator target of player to {_e}
+        set spectator target of {_p} to {_e}
         set path target with speed 1 of {_e} to {target}
 
         wait 1 tick
@@ -40,7 +40,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
             kill {_e}
 
     if {_isplayer} is true:
-        send title "&cMob died." with subtitle "&7Access the shop at &4/spawn"
+        send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
     
         add 1 to {deaths::%{_p}'s uuid%}
         send "You now have &n&c%{deaths::%{_p}'s uuid%}% deaths&7." to {_p}
