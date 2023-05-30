@@ -8,7 +8,7 @@ function updateBoard():
         set {_p} to {_sorted::%loop-number%} parsed as offline player
         set {_v} to {deaths::%{_p}'s uuid%}
 
-        console command "/holo setline leaderboard %(loop-value + 1)% &e%loop-value%. &f%{_p}% &8- &c%format({_v})%"
+        console command "/holo setline leaderboard %(loop-value + 1)% &8%loop-value%. &f%{_p}% &8- &c%format({_v})%"
 
 every minute in world "world":
     updateBoard()
