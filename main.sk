@@ -93,3 +93,11 @@ on load:
         set {_} to random number between 3 and 10
         wait "%{_}% seconds" parsed as timespan
         wait 1 tick
+
+on join:
+    set join message to ""
+    send action bar "&e%player% &ejoined the game." to all players
+
+on quit:
+    set quit message to ""
+    send action bar "&e%player% &eleft the game." to all players
