@@ -1,0 +1,10 @@
+index: 5
+type: mob
+
+name: "&7Pillager"
+item: pillager spawn egg
+
+deaths: 50
+rebirths: 0
+
+mob: pillager
