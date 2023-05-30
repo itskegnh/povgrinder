@@ -142,11 +142,10 @@ on inventory click:
             stop
 
 function add_player(p: player, n: text):
-    set {_packet} to new play_server_player_info packet
-    set {_profile} to new game_profile with id "00000000-0000-0000-0000-000000000000" and name n
-    set {_info} to new player_info with {_profile} and ping 0 and gamemode 3 and display_name n
-    add {_info} to {_packet}'s player_infos
-    send {_packet} to p
+    set {_info} to new play_server_player_info packet
+    set field "action" of {_info} to "ADD_PLAYER"
+
+    send {_p} packet {_info}
 
 
 
