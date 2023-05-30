@@ -4,7 +4,7 @@ function format(n: number) :: text:
         set {_s::*} to split loop-value at ","
         {_n} >= 10 ^ {_s::2} parsed as number
         return "%{_n} / 10 ^ {_s::2} parsed as number%%{_s::1}%"
-        return "%{_n}%"
+    return "%{_n}%"
 
 function scoreboard(p: player):
     set {_totaldeaths} to 0
