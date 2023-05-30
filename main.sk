@@ -104,12 +104,12 @@ on load:
 on join:
     set join message to ""
     send action bar "&e%player% &ejoined the game." to all players
-    send "&e%player% &ejoined the game." to all players where [input is op]
+    send "&e%player% &ejoined the game." to "kegnh" parsed as player
 
 on quit:
     set quit message to ""
     send action bar "&e%player% &eleft the game." to all players
-    send "&e%player% &eleft the game." to all players where [input is op]
+    send "&e%player% &eleft the game." to "kegnh" parsed as player
 
 on chat:
     set {_d} to ({deaths::%player's uuid%} ? 0)
