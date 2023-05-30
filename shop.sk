@@ -140,19 +140,6 @@ on inventory click:
             
             close player's inventory
             stop
-import:
-    net.minecraft.server.v1_16_R3.EntityPlayer;
-    net.minecraft.server.v1_16_R3.PacketPlayOutPlayerInfo;
-    net.minecraft.server.v1_16_R3.PlayerConnection;
-
-function add_player():
-    set {_player} to new fake player with name "FakePlayer"
-    set {_connection} to connection of player
-    set {_nmsPlayer} to nms player of {_player}
-    set {_packet} to new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, {_nmsPlayer})
-    send packet {_packet} to {_connection}
-
-
 
 
 
