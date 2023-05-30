@@ -1,0 +1,10 @@
+index: 11
+type: mob
+
+name: "&fSnow Golem"
+item: pumpkin
+
+deaths: 110
+rebirths: 1
+
+mob: snow golem
