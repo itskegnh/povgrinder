@@ -1,10 +1,10 @@
 index: 13
 type: mob
 
-name: "&6Zombie Piglin"
-item: zombie piglin spawn egg
+name: "&6Piglin"
+item: piglin spawn egg
 
 deaths: 130
 rebirths: 1
 
-mob: zombie piglin
+mob: piglin
