@@ -152,3 +152,12 @@ on inventory click:
 # now, to unlock aruas we'll use lootboxes.
 # player's right click their lootboxes to open them.
 # leader boards
+
+command /spawn:
+    trigger:
+        teleport player to {spawn}
+
+command /shop:
+    trigger:
+        player's y coord >= 120
+        gui_shop(player)
