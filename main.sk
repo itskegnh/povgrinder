@@ -136,3 +136,14 @@ on chat:
     set chat format to "&8[&c%format({_d})%&8][&d%format({_r})%&8] &f%player's prefix%%player%&8 » &f%message%"
 
 
+
+command /wipe <player>:
+    permission: op
+    trigger:
+        set {deaths::%arg-1's uuid%} to 10
+        set {rebirths::%arg-1's uuid%} to 0
+        delete {multi::%arg-1's uuid%}
+        delete {boost::%arg-1's uuid%}
+        delete {entity::%arg-1's uuid%}
+        send "&cYou have been wiped by %player%." to arg-1
+        send "&cYou have wiped %arg-1%." to player
