@@ -1,0 +1,10 @@
+index: 30
+type: mob
+
+name: "&aTurtle"
+item: turtle egg
+
+deaths: 300
+rebirths: 7
+
+mob: turtle
