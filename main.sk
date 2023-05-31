@@ -126,8 +126,8 @@ function grind_mob(playerorentity: text, isplayer: boolean):
             if block below {_e} is hopper:
                 kill {_e}
             
-            if {_e} is not online:
-                stop loop
+            # if {_e} is not online:
+                # stop loop
         
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
             
