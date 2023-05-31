@@ -1,0 +1,10 @@
+index: 25
+type: mob
+
+name: "&8Silverfish"
+item: silverfish spawn egg
+
+deaths: 250
+rebirths: 6
+
+mob: silverfish

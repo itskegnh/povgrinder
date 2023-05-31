@@ -1,0 +1,10 @@
+index: 26
+type: mob
+
+name: "&dEndermite"
+item: endermite spawn egg
+
+deaths: 260
+rebirths: 6
+
+mob: endermite

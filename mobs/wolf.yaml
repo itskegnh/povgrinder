@@ -1,0 +1,10 @@
+index: 23
+type: mob
+
+name: "&7Wolf"
+item: bone
+
+deaths: 230
+rebirths: 5
+
+mob: wolf

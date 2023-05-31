@@ -1,0 +1,10 @@
+index: 24
+type: mob
+
+name: "&6Ocelot"
+item: ocelot spawn egg
+
+deaths: 240
+rebirths: 5
+
+mob: ocelot
