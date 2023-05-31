@@ -131,7 +131,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
             if {_e} is not online:
                 stop loop
         
-        send "&ametadata true" if metadata tag "ingame" of {_p} is true else send "&cmetadata false"
+        send "&ametadata true" if metadata tag "ingame" of {_p} is true else send "&cmetadata false" to {_p}
         
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
             
