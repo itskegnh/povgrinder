@@ -1,0 +1,10 @@
+index: 27
+type: mob
+
+name: "&dEnderman"
+item: enderman spawn egg
+
+deaths: 270
+rebirths: 6
+
+mob: enderman

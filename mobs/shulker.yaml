@@ -1,0 +1,10 @@
+index: 28
+type: mob
+
+name: "&dShulker"
+item: shulker box
+
+deaths: 280
+rebirths: 6
+
+mob: shulker

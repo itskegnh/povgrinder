@@ -1,0 +1,10 @@
+index: 29
+type: mob
+
+name: "&cStrider"
+item: strider spawn egg
+
+deaths: 290
+rebirths: 7
+
+mob: strider
