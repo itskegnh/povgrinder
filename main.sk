@@ -43,6 +43,12 @@ on hunger bar change:
 # on damage of player:
 #     cancel event
 
+on death:
+    clear metadata tag "ingame" of player
+    force player to respawn
+    wait 1 tick
+    teleport player to {spawn}
+
 on join:
     wait 5 ticks
     teleport player to {spawn}
@@ -111,7 +117,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         teleport {_p} to {_l}
 
         set {_timeout} to 0
-        while {_e} is alive:
+        while metadata tag "ingame" of {_p} is true:
             wait 1 tick
             add 1 to {_timeout}
             if {_timeout} is greater than 200:
