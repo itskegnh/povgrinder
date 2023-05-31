@@ -43,11 +43,11 @@ on hunger bar change:
 # on damage of player:
 #     cancel event
 
-on death:
-    clear metadata tag "ingame" of player
-    force player to respawn
+on death of player:
+    clear metadata tag "ingame" of victim
+    force victim to respawn
     wait 1 tick
-    teleport player to {spawn}
+    teleport victim to {spawn}
 
 on join:
     wait 5 ticks
