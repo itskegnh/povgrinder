@@ -122,7 +122,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
 
         set {_timeout} to 0
         while metadata tag "ingame" of {_p} is true:
-            send "&7triggered loop"
+            send "&7triggered" to {_p}
             wait 1 tick
             add 1 to {_timeout}
             if {_timeout} is greater than 200:
