@@ -206,5 +206,5 @@ command /wipe <player>:
 
 on first join:
     wait 5 seconds
-    send title "&4Gift!" with subtitle "&7You have been given &c100 blood&7." to player
+    send title "&4Gift!" with subtitle "&7You got &c+100&7 blood. Upgrade at &c/shop&7." to player
     add 100 to {deaths::%player's uuid%}
