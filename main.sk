@@ -123,12 +123,15 @@ function grind_mob(playerorentity: text, isplayer: boolean):
             wait 1 tick
             add 1 to {_timeout}
             if {_timeout} is greater than 200:
+                send "&ctimeout" to {_p}
                 kill {_e}
             
             if block below {_e} is hopper:
+                send "&chopper" to {_p}
                 kill {_e}
             
             if {_e} is not online:
+                send "&coffline" to {_p}
                 stop loop
         
         send ("&ametadata true" if metadata tag "ingame" of {_p} is true else "&cmetadata false") to {_p}
