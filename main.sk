@@ -44,6 +44,7 @@ on hunger bar change:
 #     cancel event
 
 on death of player:
+    set death message to ""
     clear metadata tag "ingame" of victim
     force victim to respawn
     wait 1 tick
