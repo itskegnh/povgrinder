@@ -157,6 +157,7 @@ command /grind:
 
 
         set metadata tag "ingame" of player to true
+        wait 1 tick
         grind_mob("%player%", true)
 
 on load:
