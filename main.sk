@@ -120,15 +120,15 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         set {_timeout} to 0
         while metadata tag "ingame" of {_p} is true:
             wait 1 tick
-            # add 1 to {_timeout}
-            # if {_timeout} is greater than 200:
-            #     kill {_e}
+            add 1 to {_timeout}
+            if {_timeout} is greater than 200:
+                kill {_e}
             
-            # if block below {_e} is hopper:
-            #     kill {_e}
+            if block below {_e} is hopper:
+                kill {_e}
             
-            # if {_e} is not online:
-                # stop loop
+            if {_e} is not online:
+                stop loop
         
         send title "&cMob died." with subtitle "&7Access the shop at &4/spawn" to {_p}
             
@@ -144,11 +144,7 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         scoreboard({_p})
 
         clear metadata tag "ingame" of {_p}
-        
 
-
-
-        send "PLAYER" to {_p}
     
 command /grind:
     trigger:
