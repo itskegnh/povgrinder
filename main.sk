@@ -118,8 +118,11 @@ function grind_mob(playerorentity: text, isplayer: boolean):
         set {_p}'s gamemode to adventure
         teleport {_p} to {_l}
 
+        wait 1 tick
+
         set {_timeout} to 0
         while metadata tag "ingame" of {_p} is true:
+            send "&7triggered loop"
             wait 1 tick
             add 1 to {_timeout}
             if {_timeout} is greater than 200:
