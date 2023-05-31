@@ -12,7 +12,7 @@ function updateBoard():
     
     set {_sorted::*} to sorted indices of {rebirths::*} in descending order
     loop 10 times:
-        set {_p} to {_sorted::%loop-number%} parsed as offline player
+        set {_p} to {_sorted::%loop-number+1%} parsed as offline player
         set {_v} to {rebirths::%{_p}'s uuid%}
 
         console command "/holo setline rebirths %(loop-value + 1)% &8%loop-value%. &f%{_p}% &8- &d%format({_v})%"
