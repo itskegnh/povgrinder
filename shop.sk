@@ -189,6 +189,8 @@ command /shop:
 
 command /rebirth:
     trigger:
+        if player's y coord < 120:
+            player command "/spawn"
         set {_cost} to (2^{rebirths::%player's uuid%} ? 0)*10000
         
         set {_gui} to chest inventory with 5 rows named "Rebirth"
